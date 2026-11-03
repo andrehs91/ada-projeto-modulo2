@@ -201,6 +201,8 @@ jobs:
       # Vincula os SBOMs aprovados ao mesmo digest publicado e assinado.
       # As atestações são armazenadas no registry; os artefatos abaixo são para revisão.
       - name: 10 - Atestar e verificar SBOMs com Cosign keyless
+        id: cosign-sbom
+        timeout-minutes: 10
         if: ${{ github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
         working-directory: ${{ env.APP_ROOT }}
         shell: bash
@@ -208,15 +210,55 @@ jobs:
           SIGNED_IMAGE: ${{ steps.publish-image.outputs.image-ref }}
         run: |
           set -euo pipefail
-          cosign attest --yes --type cyclonedx --predicate .ci/sbom/sbom.cdx.json "$SIGNED_IMAGE"
-          cosign attest --yes --type spdxjson --predicate .ci/sbom/sbom.spdx.json "$SIGNED_IMAGE"
+          diagnostics=.ci/cosign
+          mkdir -p "$diagnostics"
+          printf '%s\n' "$SIGNED_IMAGE" > "$diagnostics/image-ref.txt"
+          echo '## Atestações e verificações Cosign' >> "$GITHUB_STEP_SUMMARY"
+
+          # Cada comando tem limite próprio; stderr permanece no log do Actions.
+          # stdout pode incluir todo o SBOM em Base64 e fica apenas no artefato.
+          run_cosign() {
+            local operation="$1" type="$2"
+            shift 2
+            local started=$SECONDS code
+            local result="$diagnostics/$operation-$type.json"
+            echo "[$(date -u +%FT%TZ)] Iniciando $operation: $type (limite: 120s)." | tee -a "$diagnostics/progress.log"
+            if timeout --signal=TERM --kill-after=10s 120s "$@" > "$result"; then
+              echo "[$(date -u +%FT%TZ)] Concluído $operation: $type em $((SECONDS - started))s; saída em $result ($(wc -c < "$result") bytes)." | tee -a "$diagnostics/progress.log"
+              echo "- $operation / $type: aprovado em $((SECONDS - started))s." >> "$GITHUB_STEP_SUMMARY"
+            else
+              code=$?
+              echo "[$(date -u +%FT%TZ)] Falha $operation: $type em $((SECONDS - started))s (exit $code)." | tee -a "$diagnostics/progress.log"
+              echo "- $operation / $type: falhou (exit $code); consulte os logs e o artefato de diagnóstico." >> "$GITHUB_STEP_SUMMARY"
+              if [[ "$code" == 124 || "$code" == 137 ]]; then
+                echo "::error::Cosign $operation / $type excedeu o limite de tempo."
+              else
+                echo "::error::Cosign $operation / $type falhou (exit $code)."
+              fi
+              return "$code"
+            fi
+          }
+
+          run_cosign attest cyclonedx cosign attest --yes --type cyclonedx --predicate .ci/sbom/sbom.cdx.json "$SIGNED_IMAGE"
+          run_cosign attest spdxjson cosign attest --yes --type spdxjson --predicate .ci/sbom/sbom.spdx.json "$SIGNED_IMAGE"
           for type in cyclonedx spdxjson; do
-            cosign verify-attestation \
+            run_cosign verify "$type" cosign verify-attestation \
               --type "$type" \
               --certificate-identity "https://github.com/${GITHUB_WORKFLOW_REF}" \
               --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
               "$SIGNED_IMAGE"
           done
+
+      # Etapa independente dos SBOMs para preservar diagnóstico mesmo após timeout.
+      - name: Publicar diagnóstico das atestações Cosign
+        if: ${{ always() && steps.cosign-sbom.outcome != 'skipped' && steps.cosign-sbom.outcome != '' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: cosign-diagnostics-${{ github.run_number }}-${{ github.run_attempt }}
+          path: ${{ env.APP_ROOT }}/.ci/cosign/
+          if-no-files-found: warn
+          retention-days: 14
+          include-hidden-files: true
 
       # Publicar SBOMs/relatório para revisão, inclusive quando algum gate reprovar.
       # O status do job continua falho; não publicar os manifestos Kubernetes renderizados.
