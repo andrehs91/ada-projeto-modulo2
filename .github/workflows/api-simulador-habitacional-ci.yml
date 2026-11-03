@@ -82,11 +82,14 @@ jobs:
           install -m 0755 conftest "$RUNNER_TEMP/policy-tools/conftest"
           echo "$RUNNER_TEMP/policy-tools" >> "$GITHUB_PATH"
 
-      # Preenche os templates com a imagem da build, preservando os arquivos de origem.
+      # Executa os testes do gerador/validador de evidências Cosign e renderiza os
+      # templates Kubernetes com a imagem da build, preservando os arquivos de origem.
       # Os manifestos em .ci/k8s serão validados pelas políticas antes de qualquer deploy.
-      - name: 1 - Renderizar manifestos Kubernetes com a imagem da build
+      - name: 1 - Testar evidências Cosign e renderizar manifestos Kubernetes
         working-directory: ${{ env.APP_ROOT }}
-        run: node scripts/render-ci.mjs
+        run: |
+          node --test scripts/cosign-evidence.test.mjs
+          node scripts/render-ci.mjs
 
       - name: 2 - Restore, test e build .NET Release
         working-directory: ${{ env.APP_ROOT }}
@@ -97,7 +100,10 @@ jobs:
 
       - name: 2 - Build da imagem Docker final
         working-directory: ${{ env.APP_ROOT }}
-        run: docker build --pull --file api-simulador-habitacional/Dockerfile --target final --tag "$CI_IMAGE" .
+        run: |
+          echo "BUILD_STARTED_ON=$(date -u +%FT%TZ)" >> "$GITHUB_ENV"
+          docker build --pull --file api-simulador-habitacional/Dockerfile --target final --tag "$CI_IMAGE" .
+          echo "BUILD_FINISHED_ON=$(date -u +%FT%TZ)" >> "$GITHUB_ENV"
 
       - name: 3 - Testes Rego e validações da aplicação real
         working-directory: ${{ env.APP_ROOT }}
@@ -199,10 +205,11 @@ jobs:
             "$SIGNED_IMAGE"
 
       # Vincula os SBOMs aprovados ao mesmo digest publicado e assinado.
+      # Provenance autodeclarada pelo workflow: demonstrativa, sem nível SLSA garantido.
       # As atestações são armazenadas no registry; os artefatos abaixo são para revisão.
-      - name: 10 - Atestar e verificar SBOMs com Cosign keyless
+      - name: 10 - Atestar e verificar SBOMs e provenance com Cosign keyless
         id: cosign-sbom
-        timeout-minutes: 10
+        timeout-minutes: 15
         if: ${{ github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
         working-directory: ${{ env.APP_ROOT }}
         shell: bash
@@ -214,6 +221,8 @@ jobs:
           mkdir -p "$diagnostics"
           printf '%s\n' "$SIGNED_IMAGE" > "$diagnostics/image-ref.txt"
           echo '## Atestações e verificações Cosign' >> "$GITHUB_STEP_SUMMARY"
+          node scripts/cosign-evidence.mjs generate "$diagnostics/provenance.json"
+          echo 'Provenance demonstrativa e autodeclarada; não é evidência de builder SLSA confiável.' >> "$GITHUB_STEP_SUMMARY"
 
           # Cada comando tem limite próprio; stderr permanece no log do Actions.
           # stdout pode incluir todo o SBOM em Base64 e fica apenas no artefato.
@@ -241,12 +250,20 @@ jobs:
 
           run_cosign attest cyclonedx cosign attest --yes --type cyclonedx --predicate .ci/sbom/sbom.cdx.json "$SIGNED_IMAGE"
           run_cosign attest spdxjson cosign attest --yes --type spdxjson --predicate .ci/sbom/sbom.spdx.json "$SIGNED_IMAGE"
-          for type in cyclonedx spdxjson; do
+          run_cosign attest slsaprovenance cosign attest --yes --type slsaprovenance --predicate "$diagnostics/provenance.json" "$SIGNED_IMAGE"
+          for type in cyclonedx spdxjson slsaprovenance; do
             run_cosign verify "$type" cosign verify-attestation \
               --type "$type" \
               --certificate-identity "https://github.com/${GITHUB_WORKFLOW_REF}" \
               --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
               "$SIGNED_IMAGE"
+            case "$type" in
+              cyclonedx) predicate=.ci/sbom/sbom.cdx.json ;;
+              spdxjson) predicate=.ci/sbom/sbom.spdx.json ;;
+              slsaprovenance) predicate="$diagnostics/provenance.json" ;;
+            esac
+            # Apenas envelopes já verificados criptograficamente e pela identidade OIDC.
+            node scripts/cosign-evidence.mjs verify "$type" "$diagnostics/verify-$type.json" "$predicate" "$diagnostics/validated-$type.json"
           done
 
       # Etapa independente dos SBOMs para preservar diagnóstico mesmo após timeout.
