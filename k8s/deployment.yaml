@@ -22,38 +22,16 @@ spec:
     spec:
       automountServiceAccountToken: false
       terminationGracePeriodSeconds: 30
-      securityContext:
-        runAsNonRoot: true
-        # UID/GID do usuário app nas imagens Linux oficiais do .NET.
-        runAsUser: 1654
-        runAsGroup: 1654
-        fsGroup: 1654
-        seccompProfile:
-          type: RuntimeDefault
       containers:
         - name: api
           image: SUBSTITUA_REGISTRY/api-simulador-habitacional:SUBSTITUA_BUILD_VERSION
           imagePullPolicy: IfNotPresent
-          securityContext:
-            allowPrivilegeEscalation: false
-            privileged: false
-            readOnlyRootFilesystem: true
-            capabilities:
-              drop:
-                - ALL
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: Production
           ports:
             - name: http
               containerPort: 8080
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 500m
-              memory: 256Mi
           startupProbe:
             httpGet:
               path: /health

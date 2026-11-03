@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-policy:
+  ci:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     permissions:
@@ -21,6 +21,7 @@ jobs:
       packages: write
       id-token: write # OIDC usado pelo Cosign keyless; não requer chave privada.
     env:
+      HAS_ERROR: 'false'
       OPA_VERSION: '1.22.0'
       CONFTEST_VERSION: '0.71.1'
       SYFT_VERSION: 'v1.56.0'
@@ -57,8 +58,10 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      # Gate de qualidade: uma falha interrompe o job e impede as etapas seguintes.
+      # Coleta falhas sem interromper as demais verificações; o gate final reprova o job.
       - name: Gate de qualidade - Testes unitários
+        id: unit-tests
+        continue-on-error: true
         working-directory: ${{ env.APP_ROOT }}
         run: dotnet test api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj --configuration Release
 
@@ -68,6 +71,8 @@ jobs:
           node-version: '22'
 
       - name: Instalar OPA e Conftest com checksum
+        id: policy-tools
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -90,28 +95,40 @@ jobs:
       # Preenche os templates com a imagem da build, preservando os arquivos de origem.
       # Os manifestos em .ci/k8s serão validados pelas políticas antes de qualquer deploy.
       - name: 1 - Renderizar manifestos Kubernetes com a imagem da build
+        id: render
+        continue-on-error: true
         working-directory: ${{ env.APP_ROOT }}
         run: node scripts/render-ci.mjs
 
       - name: 2 - Restore e build .NET Release
+        id: dotnet-build
+        continue-on-error: true
         working-directory: ${{ env.APP_ROOT }}
         run: |
           dotnet restore api-simulador-habitacional.slnx
           dotnet build api-simulador-habitacional.slnx --configuration Release --no-restore
 
       - name: 2 - Build da imagem Docker final
+        id: docker-build
+        continue-on-error: true
         working-directory: ${{ env.APP_ROOT }}
         run: docker build --pull --file api-simulador-habitacional/Dockerfile --target final --tag "$CI_IMAGE" .
 
       - name: 3 - Testes Rego e validações da aplicação real
+        id: app-policy
+        continue-on-error: true
         working-directory: ${{ env.APP_ROOT }}
         run: bash scripts/validate.sh
 
       - name: 4 - Preparar diretório de SBOMs
+        id: sbom-directory
+        continue-on-error: true
         working-directory: ${{ env.APP_ROOT }}
         run: mkdir -p .ci/sbom
 
       - name: 4 - Gerar SBOM CycloneDX da imagem construída
+        id: sbom-cyclonedx
+        continue-on-error: true
         uses: anchore/sbom-action@fffec3d851af758d56fee099cf3fbf8aa8779843 # v0.24.3
         with:
           image: docker:${{ env.CI_IMAGE }}
@@ -123,6 +140,8 @@ jobs:
           dependency-snapshot: false
 
       - name: 4 - Gerar SBOM SPDX da imagem construída
+        id: sbom-spdx
+        continue-on-error: true
         uses: anchore/sbom-action@fffec3d851af758d56fee099cf3fbf8aa8779843 # v0.24.3
         with:
           image: docker:${{ env.CI_IMAGE }}
@@ -135,10 +154,13 @@ jobs:
 
       - name: 5 - Validar inventário e licenças dos SBOMs
         id: sbom-policy
+        continue-on-error: true
         working-directory: ${{ env.APP_ROOT }}
         run: bash scripts/validate-sbom.sh
 
       - name: 6 - Gate de segurança - Vulnerabilidades com Trivy
+        id: trivy
+        continue-on-error: true
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
         env:
           TRIVY_IMAGE_SRC: docker
@@ -153,6 +175,39 @@ jobs:
           ignore-unfixed: false
           exit-code: '1'
           timeout: '5m0s'
+
+      # outcome preserva a falha original mesmo com continue-on-error (conclusion não).
+      - name: Consolidar resultados das verificações
+        if: ${{ !cancelled() }}
+        shell: bash
+        env:
+          CHECK_RESULTS: ${{ toJSON(steps) }}
+        run: |
+          set -euo pipefail
+          checks=(unit-tests policy-tools render dotnet-build docker-build app-policy sbom-directory sbom-cyclonedx sbom-spdx sbom-policy trivy)
+          has_error="$HAS_ERROR"
+          echo '## Resultados dos testes e validações' >> "$GITHUB_STEP_SUMMARY"
+          for check in "${checks[@]}"; do
+            outcome=$(jq -r --arg check "$check" '.[$check].outcome // "missing"' <<< "$CHECK_RESULTS")
+            echo "- $check: $outcome" >> "$GITHUB_STEP_SUMMARY"
+            if [[ "$outcome" != success ]]; then
+              has_error=true
+              echo "::error::Verificação $check não aprovada: $outcome"
+            fi
+          done
+          echo "HAS_ERROR=$has_error" >> "$GITHUB_ENV"
+
+      # Executa também em PRs/branches sem push: continue-on-error não pode mascarar o CI.
+      - name: Gate final - Bloquear publicação quando HAS_ERROR for true
+        if: ${{ !cancelled() }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$HAS_ERROR" != false ]]; then
+            echo '::error::Testes ou validações falharam. Publicação da imagem bloqueada.'
+            exit 1
+          fi
+          echo 'Todas as verificações foram aprovadas; HAS_ERROR=false.'
 
       # Publicação somente na branch padrão e após aprovação de todos os gates.
       # GHCR usa GITHUB_TOKEN; demais registries exigem vars.REGISTRY_USERNAME
@@ -216,6 +271,7 @@ jobs:
             ${{ env.APP_ROOT }}/.ci/sbom/image-id.txt
             ${{ env.APP_ROOT }}/.ci/sbom/scope.json
             ${{ env.APP_ROOT }}/.ci/sbom/application.deps.json
+            ${{ env.APP_ROOT }}/.ci/reports/
           if-no-files-found: error
           retention-days: 14
           include-hidden-files: true
