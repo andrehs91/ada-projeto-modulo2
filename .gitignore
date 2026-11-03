@@ -1,0 +1,6 @@
+# Saída gerada: inclui Secret TLS temporário, nunca versionar.
+.ci/
+.vs/
+**/bin/
+**/obj/
+*.csproj.user

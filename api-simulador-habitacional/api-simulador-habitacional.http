@@ -1,0 +1,41 @@
+@api_simulador_habitacional_HostAddress = http://localhost:5052
+
+POST {{api_simulador_habitacional_HostAddress}}/api/simulacoes/financiamento
+Content-Type: application/json
+
+{
+	"saldoDevedor": 200000.00,
+	"parcelasRestantes": 240,
+	"cetAnual": 0.12,
+	"sistemaAmortizacao": "SAC"
+}
+
+###
+
+POST {{api_simulador_habitacional_HostAddress}}/api/simulacoes/amortizacao
+Content-Type: application/json
+
+{
+	"saldoDevedor": 200000.00,
+	"parcelasRestantes": 240,
+	"cetAnual": 0.12,
+	"sistemaAmortizacao": "PRICE",
+	"objetivoAmortizacao": "ReduzirPrazo",
+	"valorAmortizacao": 20000.00
+}
+
+###
+
+POST {{api_simulador_habitacional_HostAddress}}/api/simulacoes/amortizacao
+Content-Type: application/json
+
+{
+	"saldoDevedor": 200000.00,
+	"parcelasRestantes": 240,
+	"cetAnual": 0.12,
+	"sistemaAmortizacao": "SAC",
+	"objetivoAmortizacao": "ReduzirPrestacao",
+	"valorAmortizacao": 20000.00
+}
+
+###

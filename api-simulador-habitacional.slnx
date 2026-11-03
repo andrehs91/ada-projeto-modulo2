@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="api-simulador-habitacional/api-simulador-habitacional.csproj" />
+  <Project Path="api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj" />
+</Solution>
