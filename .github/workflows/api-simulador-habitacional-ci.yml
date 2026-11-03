@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-policy:
+  ci:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     permissions:
@@ -57,11 +57,6 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      # Gate de qualidade: uma falha interrompe o job e impede as etapas seguintes.
-      - name: Gate de qualidade - Testes unitários
-        working-directory: ${{ env.APP_ROOT }}
-        run: dotnet test api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj --configuration Release
-
       - name: Configurar Node.js (renderização sem dependências)
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
@@ -93,10 +88,11 @@ jobs:
         working-directory: ${{ env.APP_ROOT }}
         run: node scripts/render-ci.mjs
 
-      - name: 2 - Restore e build .NET Release
+      - name: 2 - Restore, test e build .NET Release
         working-directory: ${{ env.APP_ROOT }}
         run: |
           dotnet restore api-simulador-habitacional.slnx
+          dotnet test api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj --configuration Release --no-restore
           dotnet build api-simulador-habitacional.slnx --configuration Release --no-restore
 
       - name: 2 - Build da imagem Docker final
@@ -202,6 +198,26 @@ jobs:
             --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
             "$SIGNED_IMAGE"
 
+      # Vincula os SBOMs aprovados ao mesmo digest publicado e assinado.
+      # As atestações são armazenadas no registry; os artefatos abaixo são para revisão.
+      - name: 10 - Atestar e verificar SBOMs com Cosign keyless
+        if: ${{ github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
+        working-directory: ${{ env.APP_ROOT }}
+        shell: bash
+        env:
+          SIGNED_IMAGE: ${{ steps.publish-image.outputs.image-ref }}
+        run: |
+          set -euo pipefail
+          cosign attest --yes --type cyclonedx --predicate .ci/sbom/sbom.cdx.json "$SIGNED_IMAGE"
+          cosign attest --yes --type spdxjson --predicate .ci/sbom/sbom.spdx.json "$SIGNED_IMAGE"
+          for type in cyclonedx spdxjson; do
+            cosign verify-attestation \
+              --type "$type" \
+              --certificate-identity "https://github.com/${GITHUB_WORKFLOW_REF}" \
+              --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
+              "$SIGNED_IMAGE"
+          done
+
       # Publicar SBOMs/relatório para revisão, inclusive quando algum gate reprovar.
       # O status do job continua falho; não publicar os manifestos Kubernetes renderizados.
       - name: Publicar SBOMs e diagnóstico para revisão
@@ -213,7 +229,6 @@ jobs:
             ${{ env.APP_ROOT }}/.ci/sbom/sbom.cdx.json
             ${{ env.APP_ROOT }}/.ci/sbom/sbom.spdx.json
             ${{ env.APP_ROOT }}/.ci/sbom/validation.json
-            ${{ env.APP_ROOT }}/.ci/sbom/image-id.txt
             ${{ env.APP_ROOT }}/.ci/sbom/scope.json
             ${{ env.APP_ROOT }}/.ci/sbom/application.deps.json
           if-no-files-found: error

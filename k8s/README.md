@@ -12,9 +12,6 @@
   `Dockerfile` existente e substituir os placeholders em `deployment.yaml` pela
   referência real (preferencialmente fixada por digest). Para registry privado, configurar
   `imagePullSecrets` no Pod conforme o ambiente.
-- Configurar a terminação TLS no Ingress do cluster. O Ingress deve encaminhar
-  as requisições por HTTP para a porta 80 do Service. Certificados e eventual
-  redirecionamento HTTP para HTTPS são responsabilidade do Ingress, não da API.
 
 ## Objetos
 
@@ -25,23 +22,19 @@
   filesystem raiz somente leitura e `/tmp` gravável. Não monta token de acesso à
   API do Kubernetes. Requests/limits são valores iniciais para ajustar com medições.
 - `service.yaml`: `ClusterIP`, disponível dentro do cluster, com `80 -> 8080`.
-  O acesso externo com HTTPS será disponibilizado pelo Ingress.
 
 Aplicar o ConfigMap, o Deployment e o Service no mesmo namespace.
-O manifesto de Ingress não está incluído.
-Não foram criados recursos no cluster automaticamente.
 
 ## Health checks e configuração
 
 Startup, Readiness e Liveness utilizam o path `/health` na porta HTTP 8080.
 A startup probe permite aproximadamente 150 segundos para inicializar;
 as outras probes começam após seu sucesso. Essa verificação simples não testa
-dependências nem valida o TLS do Ingress.
+dependências.
 
 Todas as rotas da aplicação atendem por HTTP, sem redirecionamento HTTPS.
 
 A montagem de `appsettings.json` usa `subPath`: alterações no ConfigMap exigem
 recriar os Pods (por exemplo, um rollout restart do Deployment).
 
-O ambiente é `Production`, portanto `appsettings.Development.json` não sobrepõe
-o ConfigMap. Variáveis de ambiente ainda têm precedência sobre `appsettings.json`.
+Variáveis de ambiente ainda têm precedência sobre `appsettings.json`.

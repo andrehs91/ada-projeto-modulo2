@@ -2,8 +2,8 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-POLICY="api-simulador-habitacional/policy"
-OUTPUT="${CI_OUTPUT_DIR:-.ci}/sbom"
+POLICY="policy"
+OUTPUT=".ci/sbom"
 IMAGE="${CI_IMAGE:-ghcr.io/local/api-simulador-habitacional:ci-local}"
 for file in sbom.cdx.json sbom.spdx.json; do
   if [[ ! -s "$OUTPUT/$file" ]]; then
@@ -11,7 +11,6 @@ for file in sbom.cdx.json sbom.spdx.json; do
     exit 1
   fi
 done
-docker image inspect "$IMAGE" --format '{{.Id}}' > "$OUTPUT/image-id.txt"
 
 # Ler o manifesto realmente publicado na imagem, não arquivos locais de outro build.
 docker run --rm --network none --entrypoint cat "$IMAGE" \
