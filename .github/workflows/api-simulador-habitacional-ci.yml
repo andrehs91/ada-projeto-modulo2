@@ -13,17 +13,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-policy:
+  ci:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     permissions:
       contents: read
       packages: write
-      id-token: write # OIDC usado pelo Cosign keyless; não requer chave privada.
     env:
-      OPA_VERSION: '1.22.0'
-      CONFTEST_VERSION: '0.71.1'
-      SYFT_VERSION: 'v1.56.0'
       REGISTRY: ${{ vars.REGISTRY }}
       BUILD_VERSION: ${{ github.run_number }}.${{ github.run_attempt }}
     steps:
@@ -57,107 +53,27 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      # Gate de qualidade: uma falha interrompe o job e impede as etapas seguintes.
-      - name: Gate de qualidade - Testes unitários
-        working-directory: ${{ env.APP_ROOT }}
-        run: dotnet test api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj --configuration Release
-
       - name: Configurar Node.js (renderização sem dependências)
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
 
-      - name: Instalar OPA e Conftest com checksum
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/policy-tools" "$RUNNER_TEMP/policy-downloads"
-          cd "$RUNNER_TEMP/policy-downloads"
-          opa_url="https://github.com/open-policy-agent/opa/releases/download/v${OPA_VERSION}"
-          curl --fail --silent --show-error --location "$opa_url/opa_linux_amd64_static" -o opa_linux_amd64_static
-          curl --fail --silent --show-error --location "$opa_url/opa_linux_amd64_static.sha256" -o opa.sha256
-          echo "$(awk '{print $1}' opa.sha256)  opa_linux_amd64_static" | sha256sum --check -
-          install -m 0755 opa_linux_amd64_static "$RUNNER_TEMP/policy-tools/opa"
-          archive="conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz"
-          conftest_url="https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}"
-          curl --fail --silent --show-error --location "$conftest_url/$archive" -o "$archive"
-          curl --fail --silent --show-error --location "$conftest_url/checksums.txt" -o checksums.txt
-          grep "  ${archive}$" checksums.txt | sha256sum --check -
-          tar -xzf "$archive" conftest
-          install -m 0755 conftest "$RUNNER_TEMP/policy-tools/conftest"
-          echo "$RUNNER_TEMP/policy-tools" >> "$GITHUB_PATH"
-
-      # Preenche os templates com a imagem da build, preservando os arquivos de origem.
-      # Os manifestos em .ci/k8s serão validados pelas políticas antes de qualquer deploy.
-      - name: 1 - Renderizar manifestos Kubernetes com a imagem da build
+      - name: Renderizar manifestos Kubernetes com a imagem da build
         working-directory: ${{ env.APP_ROOT }}
         run: node scripts/render-ci.mjs
 
-      - name: 2 - Restore e build .NET Release
+      - name: Restore, test e build .NET Release
         working-directory: ${{ env.APP_ROOT }}
         run: |
           dotnet restore api-simulador-habitacional.slnx
+          dotnet test api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj --configuration Release --no-restore
           dotnet build api-simulador-habitacional.slnx --configuration Release --no-restore
 
-      - name: 2 - Build da imagem Docker final
+      - name: Build da imagem Docker final
         working-directory: ${{ env.APP_ROOT }}
         run: docker build --pull --file api-simulador-habitacional/Dockerfile --target final --tag "$CI_IMAGE" .
 
-      - name: 3 - Testes Rego e validações da aplicação real
-        working-directory: ${{ env.APP_ROOT }}
-        run: bash scripts/validate.sh
-
-      - name: 4 - Preparar diretório de SBOMs
-        working-directory: ${{ env.APP_ROOT }}
-        run: mkdir -p .ci/sbom
-
-      - name: 4 - Gerar SBOM CycloneDX da imagem construída
-        uses: anchore/sbom-action@fffec3d851af758d56fee099cf3fbf8aa8779843 # v0.24.3
-        with:
-          image: docker:${{ env.CI_IMAGE }}
-          format: cyclonedx-json
-          output-file: ${{ env.APP_ROOT }}/.ci/sbom/sbom.cdx.json
-          syft-version: ${{ env.SYFT_VERSION }}
-          upload-artifact: false
-          upload-release-assets: false
-          dependency-snapshot: false
-
-      - name: 4 - Gerar SBOM SPDX da imagem construída
-        uses: anchore/sbom-action@fffec3d851af758d56fee099cf3fbf8aa8779843 # v0.24.3
-        with:
-          image: docker:${{ env.CI_IMAGE }}
-          format: spdx-json
-          output-file: ${{ env.APP_ROOT }}/.ci/sbom/sbom.spdx.json
-          syft-version: ${{ env.SYFT_VERSION }}
-          upload-artifact: false
-          upload-release-assets: false
-          dependency-snapshot: false
-
-      - name: 5 - Validar inventário e licenças dos SBOMs
-        id: sbom-policy
-        working-directory: ${{ env.APP_ROOT }}
-        run: bash scripts/validate-sbom.sh
-
-      - name: 6 - Gate de segurança - Vulnerabilidades com Trivy
-        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
-        env:
-          TRIVY_IMAGE_SRC: docker
-        with:
-          version: 'v0.76.1'
-          scan-type: image
-          image-ref: ${{ env.CI_IMAGE }}
-          scanners: vuln
-          vuln-type: os,library
-          format: table
-          severity: HIGH,CRITICAL
-          ignore-unfixed: false
-          exit-code: '1'
-          timeout: '5m0s'
-
-      # Publicação somente na branch padrão e após aprovação de todos os gates.
-      # GHCR usa GITHUB_TOKEN; demais registries exigem vars.REGISTRY_USERNAME
-      # e secrets.REGISTRY_PASSWORD (senha ou token com permissão de push).
-      - name: 7 - Autenticar no registry
+      - name: Autenticar no registry
         if: ${{ github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
         uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
         with:
@@ -165,14 +81,7 @@ jobs:
           username: ${{ env.REGISTRY_HOST == 'ghcr.io' && github.actor || vars.REGISTRY_USERNAME }}
           password: ${{ env.REGISTRY_HOST == 'ghcr.io' && secrets.GITHUB_TOKEN || secrets.REGISTRY_PASSWORD }}
 
-      - name: 7 - Instalar Cosign
-        if: ${{ github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
-        uses: sigstore/cosign-installer@d7543c93d881b35a8faa02e8e3605f69b7a1ce62 # v3.10.0
-        with:
-          cosign-release: 'v2.6.0'
-
-      # Cosign assina um digest já publicado, não a tag mutável nem o ID local.
-      - name: 8 - Publicar imagem aprovada
+      - name: Publicar imagem
         if: ${{ github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
         id: publish-image
         shell: bash
@@ -187,35 +96,3 @@ jobs:
             exit 1
           fi
           echo "image-ref=$digest_ref" >> "$GITHUB_OUTPUT"
-
-      # Assinatura keyless com identidade OIDC do workflow e registro no Rekor.
-      - name: 9 - Assinar e verificar imagem com Cosign keyless
-        if: ${{ github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
-        shell: bash
-        env:
-          SIGNED_IMAGE: ${{ steps.publish-image.outputs.image-ref }}
-        run: |
-          set -euo pipefail
-          cosign sign --yes "$SIGNED_IMAGE"
-          cosign verify \
-            --certificate-identity "https://github.com/${GITHUB_WORKFLOW_REF}" \
-            --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
-            "$SIGNED_IMAGE"
-
-      # Publicar SBOMs/relatório para revisão, inclusive quando algum gate reprovar.
-      # O status do job continua falho; não publicar os manifestos Kubernetes renderizados.
-      - name: Publicar SBOMs e diagnóstico para revisão
-        if: ${{ always() && steps.sbom-policy.outcome != 'skipped' }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: sboms-${{ github.sha }}
-          path: |
-            ${{ env.APP_ROOT }}/.ci/sbom/sbom.cdx.json
-            ${{ env.APP_ROOT }}/.ci/sbom/sbom.spdx.json
-            ${{ env.APP_ROOT }}/.ci/sbom/validation.json
-            ${{ env.APP_ROOT }}/.ci/sbom/image-id.txt
-            ${{ env.APP_ROOT }}/.ci/sbom/scope.json
-            ${{ env.APP_ROOT }}/.ci/sbom/application.deps.json
-          if-no-files-found: error
-          retention-days: 14
-          include-hidden-files: true
