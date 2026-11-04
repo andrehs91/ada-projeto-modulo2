@@ -1,0 +1,415 @@
+﻿2026-11-03T00:59:59.9841869Z Current runner version: '2.338.2'
+2026-11-03T00:59:59.9869964Z ##[group]Runner Image Provisioner
+2026-11-03T00:59:59.9870861Z Hosted Compute Agent
+2026-11-03T00:59:59.9871563Z Version: 20261021.618
+2026-11-03T00:59:59.9872249Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-11-03T00:59:59.9873077Z Build Date: 2026-10-21T00:45:21Z
+2026-11-03T00:59:59.9873877Z Worker ID: {68cd0d53-4f5f-4b96-aece-c9ee127dccce}
+2026-11-03T00:59:59.9874638Z Region: eastus
+2026-11-03T00:59:59.9875621Z Cloud: Azure
+2026-11-03T00:59:59.9876275Z ##[endgroup]
+2026-11-03T00:59:59.9877869Z ##[group]Operating System
+2026-11-03T00:59:59.9878687Z Ubuntu
+2026-11-03T00:59:59.9879640Z 24.04.5
+2026-11-03T00:59:59.9880275Z LTS
+2026-11-03T00:59:59.9880904Z ##[endgroup]
+2026-11-03T00:59:59.9881509Z ##[group]Runner Image
+2026-11-03T00:59:59.9882255Z Image: ubuntu-24.04
+2026-11-03T00:59:59.9882859Z Version: 20261025.353.1
+2026-11-03T00:59:59.9884298Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-03T00:59:59.9885955Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+2026-11-03T00:59:59.9887048Z ##[endgroup]
+2026-11-03T00:59:59.9888268Z ##[group]GITHUB_TOKEN Permissions
+2026-11-03T00:59:59.9891010Z Contents: read
+2026-11-03T00:59:59.9891672Z Metadata: read
+2026-11-03T00:59:59.9892372Z Packages: write
+2026-11-03T00:59:59.9893000Z ##[endgroup]
+2026-11-03T00:59:59.9895341Z Secret source: Actions
+2026-11-03T00:59:59.9896375Z Cache mode: write
+2026-11-03T00:59:59.9897454Z Prepare workflow directory
+2026-11-03T01:00:00.0492818Z Prepare all required actions
+2026-11-03T01:00:00.0546575Z Getting action download info
+2026-11-03T01:00:00.2779013Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-11-03T01:00:00.4929436Z Download action repository 'actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1' (SHA:26b0ec14cb23fa6904739307f278c14f94c95bf1)
+2026-11-03T01:00:00.6663917Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-03T01:00:00.7965488Z Download action repository 'docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9' (SHA:c94ce9fb468520275223c153574b00df6fe4bcc9)
+2026-11-03T01:00:01.1278193Z Complete job name: ci
+2026-11-03T01:00:01.2226319Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-11-03T01:00:01.2227590Z with:
+2026-11-03T01:00:01.2228140Z   persist-credentials: false
+2026-11-03T01:00:01.2229013Z   repository: andrehs91/ada-projeto-modulo2
+2026-11-03T01:00:01.2234065Z   token: ***
+2026-11-03T01:00:01.2234600Z   ssh-strict: true
+2026-11-03T01:00:01.2235142Z   ssh-user: git
+2026-11-03T01:00:01.2235657Z   clean: true
+2026-11-03T01:00:01.2236200Z   sparse-checkout-cone-mode: true
+2026-11-03T01:00:01.2236833Z   fetch-depth: 1
+2026-11-03T01:00:01.2237351Z   fetch-tags: false
+2026-11-03T01:00:01.2237885Z   show-progress: true
+2026-11-03T01:00:01.2238457Z   lfs: false
+2026-11-03T01:00:01.2239106Z   submodules: false
+2026-11-03T01:00:01.2239689Z   set-safe-directory: true
+2026-11-03T01:00:01.2240558Z env:
+2026-11-03T01:00:01.2241082Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:00:01.2241701Z   BUILD_VERSION: 3.1
+2026-11-03T01:00:01.2242238Z ##[endgroup]
+2026-11-03T01:00:01.5250432Z Syncing repository: andrehs91/ada-projeto-modulo2
+2026-11-03T01:00:01.5253489Z ##[group]Getting Git version info
+2026-11-03T01:00:01.5255825Z Working directory is '/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2'
+2026-11-03T01:00:01.5260150Z [command]/usr/bin/git version
+2026-11-03T01:00:01.5386879Z git version 2.56.0
+2026-11-03T01:00:01.5414724Z ##[endgroup]
+2026-11-03T01:00:01.5437957Z Temporarily overriding HOME='/home/runner/work/_temp/070214b3-f4ee-47a8-bb47-c958621082ea' before making global git config changes
+2026-11-03T01:00:01.5443292Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-03T01:00:01.5448480Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:00:01.5526426Z Deleting the contents of '/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2'
+2026-11-03T01:00:01.5532000Z ##[group]Initializing the repository
+2026-11-03T01:00:01.5538318Z [command]/usr/bin/git init /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:00:01.5672521Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-03T01:00:01.5675854Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-03T01:00:01.5678600Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-03T01:00:01.5681832Z hint: call:
+2026-11-03T01:00:01.5683448Z hint:
+2026-11-03T01:00:01.5685107Z hint: 	git config --global init.defaultBranch <name>
+2026-11-03T01:00:01.5686817Z hint:
+2026-11-03T01:00:01.5688385Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-03T01:00:01.5700374Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-03T01:00:01.5703269Z hint:
+2026-11-03T01:00:01.5704427Z hint: 	git branch -m <name>
+2026-11-03T01:00:01.5705659Z hint:
+2026-11-03T01:00:01.5707267Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-03T01:00:01.5711134Z Initialized empty Git repository in /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.git/
+2026-11-03T01:00:01.5716564Z [command]/usr/bin/git remote add origin https://github.com/andrehs91/ada-projeto-modulo2
+2026-11-03T01:00:01.5771180Z ##[endgroup]
+2026-11-03T01:00:01.5773234Z ##[group]Disabling automatic garbage collection
+2026-11-03T01:00:01.5775561Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-03T01:00:01.5817909Z ##[endgroup]
+2026-11-03T01:00:01.5820113Z ##[group]Setting up auth
+2026-11-03T01:00:01.5827843Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-03T01:00:01.5897905Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-03T01:00:01.6335495Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-03T01:00:01.6388490Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-03T01:00:01.6660305Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-03T01:00:01.6722359Z ##[endgroup]
+2026-11-03T01:00:01.6724461Z ##[group]Fetching the repository
+2026-11-03T01:00:01.6738693Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +3d7fd0088d009522edd40b7baa16f5008b8e6fcc:refs/remotes/origin/unsafe
+2026-11-03T01:00:01.9319247Z From https://github.com/andrehs91/ada-projeto-modulo2
+2026-11-03T01:00:01.9322609Z  * [new ref]         3d7fd0088d009522edd40b7baa16f5008b8e6fcc -> origin/unsafe
+2026-11-03T01:00:01.9327409Z ##[endgroup]
+2026-11-03T01:00:01.9329798Z ##[group]Determining the checkout info
+2026-11-03T01:00:01.9332850Z ##[endgroup]
+2026-11-03T01:00:01.9334836Z [command]/usr/bin/git sparse-checkout disable
+2026-11-03T01:00:01.9410550Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-03T01:00:01.9459259Z ##[group]Checking out the ref
+2026-11-03T01:00:01.9467833Z [command]/usr/bin/git checkout --progress --force -B unsafe refs/remotes/origin/unsafe
+2026-11-03T01:00:01.9588350Z Switched to a new branch 'unsafe'
+2026-11-03T01:00:01.9595586Z branch 'unsafe' set up to track 'origin/unsafe'.
+2026-11-03T01:00:01.9602220Z ##[endgroup]
+2026-11-03T01:00:01.9672172Z [command]/usr/bin/git log -1 --format=%H
+2026-11-03T01:00:01.9715771Z 3d7fd0088d009522edd40b7baa16f5008b8e6fcc
+2026-11-03T01:00:01.9731716Z ##[group]Removing auth
+2026-11-03T01:00:01.9735988Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-03T01:00:01.9790793Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-03T01:00:02.0079385Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-03T01:00:02.0125191Z http.https://github.com/.extraheader
+2026-11-03T01:00:02.0140184Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-03T01:00:02.0196552Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-03T01:00:02.0486912Z ##[endgroup]
+2026-11-03T01:00:02.0801265Z ##[group]Run set -euo pipefail
+2026-11-03T01:00:02.0802692Z [36;1mset -euo pipefail[0m
+2026-11-03T01:00:02.0803981Z [36;1mif [[ -f api-simulador-habitacional.slnx ]]; then[0m
+2026-11-03T01:00:02.0805619Z [36;1m  echo "APP_ROOT=$GITHUB_WORKSPACE" >> "$GITHUB_ENV"[0m
+2026-11-03T01:00:02.0807687Z [36;1melif [[ -f api-simulador-habitacional/api-simulador-habitacional.slnx ]]; then[0m
+2026-11-03T01:00:02.0810472Z [36;1m  echo "APP_ROOT=$GITHUB_WORKSPACE/api-simulador-habitacional" >> "$GITHUB_ENV"[0m
+2026-11-03T01:00:02.0812246Z [36;1melse[0m
+2026-11-03T01:00:02.0813723Z [36;1m  echo 'Solução não encontrada na raiz nem em api-simulador-habitacional/.' >&2[0m
+2026-11-03T01:00:02.0815471Z [36;1m  exit 1[0m
+2026-11-03T01:00:02.0816291Z [36;1mfi[0m
+2026-11-03T01:00:02.0817759Z [36;1m# O renderizador valida o provedor; ACR/ECR também aceitam o host sem namespace.[0m
+2026-11-03T01:00:02.0820017Z [36;1mif [[ ! "$REGISTRY" =~ ^[a-z0-9.-]+(/[a-z0-9_.-]+)*$ ]]; then[0m
+2026-11-03T01:00:02.0823159Z [36;1m  echo 'Configure vars.REGISTRY com host e caminho opcional, sem protocolo, tag ou barra final (ex.: meuregistry.azurecr.io ou ghcr.io/owner/repo).' >&2[0m
+2026-11-03T01:00:02.0825933Z [36;1m  exit 1[0m
+2026-11-03T01:00:02.0826789Z [36;1mfi[0m
+2026-11-03T01:00:02.0828374Z [36;1mecho "CI_IMAGE=${REGISTRY}/api-simulador-habitacional:${BUILD_VERSION}" >> "$GITHUB_ENV"[0m
+2026-11-03T01:00:02.0830702Z [36;1mecho "REGISTRY_HOST=${REGISTRY%%/*}" >> "$GITHUB_ENV"[0m
+2026-11-03T01:00:02.0860626Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:00:02.0862014Z env:
+2026-11-03T01:00:02.0862812Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:00:02.0863824Z   BUILD_VERSION: 3.1
+2026-11-03T01:00:02.0864681Z ##[endgroup]
+2026-11-03T01:00:02.1130314Z ##[group]Run actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1
+2026-11-03T01:00:02.1131905Z with:
+2026-11-03T01:00:02.1132682Z   dotnet-version: 10.0.x
+2026-11-03T01:00:02.1133605Z   cache: false
+2026-11-03T01:00:02.1134383Z env:
+2026-11-03T01:00:02.1135307Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:00:02.1136310Z   BUILD_VERSION: 3.1
+2026-11-03T01:00:02.1137543Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:00:02.1139413Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:3.1
+2026-11-03T01:00:02.1140821Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:00:02.1141851Z ##[endgroup]
+2026-11-03T01:00:02.2757934Z [command]/home/runner/work/_actions/actions/setup-dotnet/26b0ec14cb23fa6904739307f278c14f94c95bf1/externals/install-dotnet.sh --skip-non-versioned-files --runtime dotnet --channel LTS
+2026-11-03T01:00:02.6048507Z dotnet-install: .NET Core Runtime with version '10.0.14' is already installed.
+2026-11-03T01:00:02.6079395Z [command]/home/runner/work/_actions/actions/setup-dotnet/26b0ec14cb23fa6904739307f278c14f94c95bf1/externals/install-dotnet.sh --skip-non-versioned-files --channel 10.0
+2026-11-03T01:00:02.8140025Z dotnet-install: .NET Core SDK with version '10.0.403' is already installed.
+2026-11-03T01:00:02.8465294Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-11-03T01:00:02.8466755Z with:
+2026-11-03T01:00:02.8467485Z   node-version: 22
+2026-11-03T01:00:02.8468463Z   always-auth: false
+2026-11-03T01:00:02.8469802Z   check-latest: false
+2026-11-03T01:00:02.8479620Z   token: ***
+2026-11-03T01:00:02.8480384Z env:
+2026-11-03T01:00:02.8481141Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:00:02.8482128Z   BUILD_VERSION: 3.1
+2026-11-03T01:00:02.8483299Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:00:02.8484953Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:3.1
+2026-11-03T01:00:02.8486284Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:00:02.8487329Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:00:02.8488265Z ##[endgroup]
+2026-11-03T01:00:03.0463250Z Found in cache @ /opt/hostedtoolcache/node/22.23.4/x64
+2026-11-03T01:00:03.0469226Z (node:2510) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-03T01:00:03.0473817Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-03T01:00:03.0477756Z ##[group]Environment details
+2026-11-03T01:00:05.8494911Z node: v22.23.4
+2026-11-03T01:00:05.8495664Z npm: 10.9.9
+2026-11-03T01:00:05.8496118Z yarn: 1.22.22
+2026-11-03T01:00:05.8497595Z ##[endgroup]
+2026-11-03T01:00:05.8650175Z ##[group]Run node scripts/render-ci.mjs
+2026-11-03T01:00:05.8650617Z [36;1mnode scripts/render-ci.mjs[0m
+2026-11-03T01:00:05.8680227Z shell: /usr/bin/bash -e {0}
+2026-11-03T01:00:05.8680539Z env:
+2026-11-03T01:00:05.8680799Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:00:05.8681095Z   BUILD_VERSION: 3.1
+2026-11-03T01:00:05.8681470Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:00:05.8682004Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:3.1
+2026-11-03T01:00:05.8682414Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:00:05.8682728Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:00:05.8683064Z ##[endgroup]
+2026-11-03T01:00:05.9064658Z Manifestos Kubernetes renderizados em /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/k8s com a imagem andrehs.azurecr.io/api-simulador-habitacional:3.1; backend somente HTTP.
+2026-11-03T01:00:05.9143507Z ##[group]Run dotnet restore api-simulador-habitacional.slnx
+2026-11-03T01:00:05.9144034Z [36;1mdotnet restore api-simulador-habitacional.slnx[0m
+2026-11-03T01:00:05.9144761Z [36;1mdotnet test api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj --configuration Release --no-restore[0m
+2026-11-03T01:00:05.9145624Z [36;1mdotnet build api-simulador-habitacional.slnx --configuration Release --no-restore[0m
+2026-11-03T01:00:05.9168600Z shell: /usr/bin/bash -e {0}
+2026-11-03T01:00:05.9169223Z env:
+2026-11-03T01:00:05.9169458Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:00:05.9169733Z   BUILD_VERSION: 3.1
+2026-11-03T01:00:05.9170090Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:00:05.9170603Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:3.1
+2026-11-03T01:00:05.9170986Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:00:05.9171272Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:00:05.9171534Z ##[endgroup]
+2026-11-03T01:00:11.3572643Z   Determining projects to restore...
+2026-11-03T01:00:12.5304047Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item. [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.slnx]
+2026-11-03T01:00:13.8234436Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.slnx]
+2026-11-03T01:00:13.8264204Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28 [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.slnx]
+2026-11-03T01:00:13.9552083Z   Restored /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj (in 1.41 sec).
+2026-11-03T01:00:14.3120960Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.slnx]
+2026-11-03T01:00:14.3621203Z   Restored /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj (in 1.87 sec).
+2026-11-03T01:00:15.2774871Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:15.4940697Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:00:15.4945731Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:15.4953921Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:00:21.8823422Z   api-simulador-habitacional -> /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/bin/Release/net10.0/api-simulador-habitacional.dll
+2026-11-03T01:00:22.9250081Z   api-simulador-habitacional.Tests -> /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/bin/Release/net10.0/api-simulador-habitacional.Tests.dll
+2026-11-03T01:00:22.9689039Z Test run for /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/bin/Release/net10.0/api-simulador-habitacional.Tests.dll (.NETCoreApp,Version=v10.0)
+2026-11-03T01:00:23.5211937Z A total of 1 test files matched the specified pattern.
+2026-11-03T01:00:26.4723420Z 
+2026-11-03T01:00:26.4770860Z Passed!  - Failed:     0, Passed:   194, Skipped:     0, Total:   194, Duration: 1 s - api-simulador-habitacional.Tests.dll (net10.0)
+2026-11-03T01:00:27.3255356Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:00:27.3293833Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:27.3312364Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:00:27.3936224Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:27.8233190Z   api-simulador-habitacional -> /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/bin/Release/net10.0/api-simulador-habitacional.dll
+2026-11-03T01:00:28.1981292Z   api-simulador-habitacional.Tests -> /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/bin/Release/net10.0/api-simulador-habitacional.Tests.dll
+2026-11-03T01:00:28.2920229Z 
+2026-11-03T01:00:28.2933549Z Build succeeded.
+2026-11-03T01:00:28.2933925Z 
+2026-11-03T01:00:28.2936452Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:00:28.2940492Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:28.2944763Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:00:28.2950123Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:28.2951808Z     4 Warning(s)
+2026-11-03T01:00:28.2982705Z     0 Error(s)
+2026-11-03T01:00:28.2983048Z 
+2026-11-03T01:00:28.2983505Z Time Elapsed 00:00:01.47
+2026-11-03T01:00:28.3330559Z ##[group]Run docker build --pull --file api-simulador-habitacional/Dockerfile --target final --tag "$CI_IMAGE" .
+2026-11-03T01:00:28.3331522Z [36;1mdocker build --pull --file api-simulador-habitacional/Dockerfile --target final --tag "$CI_IMAGE" .[0m
+2026-11-03T01:00:28.3353615Z shell: /usr/bin/bash -e {0}
+2026-11-03T01:00:28.3353908Z env:
+2026-11-03T01:00:28.3354153Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:00:28.3354448Z   BUILD_VERSION: 3.1
+2026-11-03T01:00:28.3354821Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:00:28.3355370Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:3.1
+2026-11-03T01:00:28.3355785Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:00:28.3356090Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:00:28.3356377Z ##[endgroup]
+2026-11-03T01:00:32.6223820Z #0 building with "default" instance using docker driver
+2026-11-03T01:00:32.6224270Z 
+2026-11-03T01:00:32.6224771Z #1 [internal] load build definition from Dockerfile
+2026-11-03T01:00:32.6225491Z #1 transferring dockerfile: 832B 0.0s done
+2026-11-03T01:00:32.6225997Z #1 DONE 0.0s
+2026-11-03T01:00:32.6226211Z 
+2026-11-03T01:00:32.6226778Z #2 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:10.0
+2026-11-03T01:00:32.6227405Z #2 DONE 0.1s
+2026-11-03T01:00:32.6227604Z 
+2026-11-03T01:00:32.6228104Z #3 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0
+2026-11-03T01:00:32.7601244Z #3 DONE 0.1s
+2026-11-03T01:00:32.7601896Z 
+2026-11-03T01:00:32.7603652Z #4 [internal] load .dockerignore
+2026-11-03T01:00:32.7609826Z #4 transferring context: 556B done
+2026-11-03T01:00:32.7610645Z #4 DONE 0.0s
+2026-11-03T01:00:32.7611039Z 
+2026-11-03T01:00:32.7611344Z #5 [internal] load build context
+2026-11-03T01:00:32.7611895Z #5 transferring context: 62.16kB 0.0s done
+2026-11-03T01:00:32.7612311Z #5 DONE 0.0s
+2026-11-03T01:00:32.7612483Z 
+2026-11-03T01:00:32.7613396Z #6 [base 1/2] FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee
+2026-11-03T01:00:32.7614963Z #6 resolve mcr.microsoft.com/dotnet/aspnet:10.0@sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee done
+2026-11-03T01:00:32.7616324Z #6 sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee 1.08kB / 1.08kB done
+2026-11-03T01:00:32.7617505Z #6 sha256:1f8c14bc5847dd84261170b482818d3a7edbc43ea9063ce4930da58b358fa5d0 0B / 3.60kB 0.1s
+2026-11-03T01:00:32.7618686Z #6 sha256:43cbcf11fd6f88c0375c9c0f7fe59af619abeb323befe5f57dc1502b5a05d8c3 1.58kB / 1.58kB done
+2026-11-03T01:00:32.7620885Z #6 sha256:cfeca9a55d0f8353620d75e8ccb882f000d314e8ce43290014d4467827de8747 3.13kB / 3.13kB done
+2026-11-03T01:00:32.7622876Z #6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 16.78MB / 29.77MB 0.1s
+2026-11-03T01:00:32.7624887Z #6 sha256:aa37eb26c52c0ddbcd32254925809fbdc9658dfd60665475f5a8bdbecc5d516e 11.53MB / 17.16MB 0.1s
+2026-11-03T01:00:32.9048448Z #6 sha256:1f8c14bc5847dd84261170b482818d3a7edbc43ea9063ce4930da58b358fa5d0 3.60kB / 3.60kB 0.1s done
+2026-11-03T01:00:32.9053018Z #6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 29.77MB / 29.77MB 0.2s done
+2026-11-03T01:00:32.9061219Z #6 sha256:aa37eb26c52c0ddbcd32254925809fbdc9658dfd60665475f5a8bdbecc5d516e 17.16MB / 17.16MB 0.1s done
+2026-11-03T01:00:32.9062545Z #6 sha256:f3c239e1a8382a39fd721de7ad1bd27a5821274273b253a7e6cf50c2cac1200b 156B / 156B 0.2s done
+2026-11-03T01:00:32.9063986Z #6 sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 13.63MB / 37.62MB 0.2s
+2026-11-03T01:00:32.9073634Z #6 sha256:017220401ab5b691e12f8739a2b64a7f360cef11b805a2fa57a90af907173c18 1.05MB / 13.09MB 0.2s
+2026-11-03T01:00:32.9075124Z #6 extracting sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a
+2026-11-03T01:00:33.0147691Z #6 sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 37.62MB / 37.62MB 0.3s done
+2026-11-03T01:00:33.0151061Z #6 sha256:017220401ab5b691e12f8739a2b64a7f360cef11b805a2fa57a90af907173c18 13.09MB / 13.09MB 0.2s done
+2026-11-03T01:00:34.1153870Z #6 extracting sha256:aa37eb26c52c0ddbcd32254925809fbdc9658dfd60665475f5a8bdbecc5d516e 0.1s
+2026-11-03T01:00:35.0421328Z #6 extracting sha256:1f8c14bc5847dd84261170b482818d3a7edbc43ea9063ce4930da58b358fa5d0 done
+2026-11-03T01:00:35.2471296Z #6 extracting sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 0.3s
+2026-11-03T01:00:35.3884879Z #6 extracting sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 0.4s done
+2026-11-03T01:00:35.6082091Z #6 DONE 2.9s
+2026-11-03T01:00:35.6082564Z 
+2026-11-03T01:00:35.6082867Z #7 [base 2/2] WORKDIR /app
+2026-11-03T01:00:35.6084475Z #7 DONE 0.0s
+2026-11-03T01:00:35.6084722Z 
+2026-11-03T01:00:35.6085739Z #8 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b
+2026-11-03T01:00:35.6087531Z #8 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b done
+2026-11-03T01:00:35.6091656Z #8 sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b 1.08kB / 1.08kB done
+2026-11-03T01:00:35.6094073Z #8 sha256:9c7b6b263d9d4c2e4718e16dae6d75cd8f4b5ccf206f1e7d48a98eb429981b03 2.64kB / 2.64kB done
+2026-11-03T01:00:35.6095666Z #8 sha256:1f8c14bc5847dd84261170b482818d3a7edbc43ea9063ce4930da58b358fa5d0 3.60kB / 3.60kB 0.1s done
+2026-11-03T01:00:35.6096807Z #8 sha256:3192b8163619903b1b48ea1f37c042230d3c375a3812165971facb1781112b39 5.64kB / 5.64kB done
+2026-11-03T01:00:35.6098140Z #8 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 29.77MB / 29.77MB 0.2s done
+2026-11-03T01:00:35.6100683Z #8 sha256:aa37eb26c52c0ddbcd32254925809fbdc9658dfd60665475f5a8bdbecc5d516e 17.16MB / 17.16MB 0.1s done
+2026-11-03T01:00:35.6102143Z #8 sha256:7ed664a3150a862fb3aab545ecafd771f6532bd31ab4881e9b570d3f1e7a6edd 24.45MB / 24.45MB 0.3s done
+2026-11-03T01:00:35.6103762Z #8 sha256:017220401ab5b691e12f8739a2b64a7f360cef11b805a2fa57a90af907173c18 13.09MB / 13.09MB 0.3s done
+2026-11-03T01:00:35.6104819Z #8 sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 37.62MB / 37.62MB 0.3s done
+2026-11-03T01:00:35.6105682Z #8 sha256:f3c239e1a8382a39fd721de7ad1bd27a5821274273b253a7e6cf50c2cac1200b 156B / 156B 0.2s done
+2026-11-03T01:00:35.6106530Z #8 sha256:7a3f8cedb109146f80dca176bbb35fb0e2a737392d121ce9b328dd70d6977f7a 21.11MB / 21.11MB 0.4s done
+2026-11-03T01:00:35.6107387Z #8 sha256:cb09e947f848c222feefb5d20fbc9c3fd4dd80d61c4e3d93e961a2b2f3123611 194.31MB / 194.31MB 1.3s done
+2026-11-03T01:00:35.6108241Z #8 extracting sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 1.1s done
+2026-11-03T01:00:35.6109729Z #8 sha256:3465c8a1b95f5898d31857b639729a75334c3c647861a0bd158871420485d488 21.03MB / 21.03MB 0.4s done
+2026-11-03T01:00:35.6110756Z #8 sha256:463481a04bb2714ed800071b522ff9715918347e550ce0f750f866eb2ba70001 535B / 535B 0.3s done
+2026-11-03T01:00:35.6112117Z #8 extracting sha256:aa37eb26c52c0ddbcd32254925809fbdc9658dfd60665475f5a8bdbecc5d516e 0.5s done
+2026-11-03T01:00:35.6113620Z #8 extracting sha256:1f8c14bc5847dd84261170b482818d3a7edbc43ea9063ce4930da58b358fa5d0 done
+2026-11-03T01:00:35.6115012Z #8 extracting sha256:f3c239e1a8382a39fd721de7ad1bd27a5821274273b253a7e6cf50c2cac1200b done
+2026-11-03T01:00:35.6116325Z #8 extracting sha256:017220401ab5b691e12f8739a2b64a7f360cef11b805a2fa57a90af907173c18 0.1s done
+2026-11-03T01:00:35.6117745Z #8 extracting sha256:7ed664a3150a862fb3aab545ecafd771f6532bd31ab4881e9b570d3f1e7a6edd
+2026-11-03T01:00:35.7887734Z #8 ...
+2026-11-03T01:00:35.7888183Z 
+2026-11-03T01:00:35.7894103Z #9 [final 1/2] WORKDIR /app
+2026-11-03T01:00:35.7895448Z #9 DONE 0.0s
+2026-11-03T01:00:35.7895709Z 
+2026-11-03T01:00:35.7896563Z #8 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b
+2026-11-03T01:00:36.5589054Z #8 extracting sha256:7ed664a3150a862fb3aab545ecafd771f6532bd31ab4881e9b570d3f1e7a6edd 0.9s done
+2026-11-03T01:00:36.5592849Z #8 extracting sha256:cb09e947f848c222feefb5d20fbc9c3fd4dd80d61c4e3d93e961a2b2f3123611
+2026-11-03T01:00:40.0789519Z #8 extracting sha256:cb09e947f848c222feefb5d20fbc9c3fd4dd80d61c4e3d93e961a2b2f3123611 3.4s done
+2026-11-03T01:00:41.0021943Z #8 extracting sha256:7a3f8cedb109146f80dca176bbb35fb0e2a737392d121ce9b328dd70d6977f7a
+2026-11-03T01:00:41.1270606Z #8 extracting sha256:7a3f8cedb109146f80dca176bbb35fb0e2a737392d121ce9b328dd70d6977f7a 0.1s done
+2026-11-03T01:00:41.1272015Z #8 extracting sha256:463481a04bb2714ed800071b522ff9715918347e550ce0f750f866eb2ba70001 done
+2026-11-03T01:00:41.1272920Z #8 extracting sha256:3465c8a1b95f5898d31857b639729a75334c3c647861a0bd158871420485d488
+2026-11-03T01:00:41.5394694Z #8 extracting sha256:3465c8a1b95f5898d31857b639729a75334c3c647861a0bd158871420485d488 0.4s done
+2026-11-03T01:00:41.5395991Z #8 DONE 8.9s
+2026-11-03T01:00:41.7085596Z 
+2026-11-03T01:00:41.7086382Z #10 [build 2/7] WORKDIR /src
+2026-11-03T01:00:41.7086894Z #10 DONE 0.0s
+2026-11-03T01:00:41.7087060Z 
+2026-11-03T01:00:41.7087858Z #11 [build 3/7] COPY [api-simulador-habitacional/api-simulador-habitacional.csproj, api-simulador-habitacional/]
+2026-11-03T01:00:41.7088589Z #11 DONE 0.0s
+2026-11-03T01:00:41.7088746Z 
+2026-11-03T01:00:41.7089722Z #12 [build 4/7] RUN dotnet restore "./api-simulador-habitacional/api-simulador-habitacional.csproj"
+2026-11-03T01:00:42.4145227Z #12 0.856   Determining projects to restore...
+2026-11-03T01:00:42.8005123Z #12 1.242 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:00:43.7583743Z #12 2.200 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:43.7586764Z #12 2.200 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:00:43.8725439Z #12 2.314   Restored /src/api-simulador-habitacional/api-simulador-habitacional.csproj (in 1.06 sec).
+2026-11-03T01:00:43.9725223Z #12 DONE 2.4s
+2026-11-03T01:00:43.9725559Z 
+2026-11-03T01:00:43.9725816Z #13 [build 5/7] COPY . .
+2026-11-03T01:00:43.9726236Z #13 DONE 0.0s
+2026-11-03T01:00:43.9726446Z 
+2026-11-03T01:00:43.9726876Z #14 [build 6/7] WORKDIR /src/api-simulador-habitacional
+2026-11-03T01:00:44.1386875Z #14 DONE 0.0s
+2026-11-03T01:00:44.1387793Z 
+2026-11-03T01:00:44.1395830Z #15 [build 7/7] RUN dotnet build "./api-simulador-habitacional.csproj" -c Release -o /app/build
+2026-11-03T01:00:44.9499543Z #15 0.964   Determining projects to restore...
+2026-11-03T01:00:45.3645895Z #15 1.378 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:00:45.3650537Z #15 1.378 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:45.5214735Z #15 1.379 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:00:45.5216660Z #15 1.385   All projects are up-to-date for restore.
+2026-11-03T01:00:45.6538323Z #15 1.668 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:00:45.6542615Z #15 1.668 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:45.6545259Z #15 1.668 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:00:48.5010097Z #15 4.515   api-simulador-habitacional -> /app/build/api-simulador-habitacional.dll
+2026-11-03T01:00:48.7405338Z #15 4.531 
+2026-11-03T01:00:48.7405908Z #15 4.532 Build succeeded.
+2026-11-03T01:00:48.7406384Z #15 4.532 
+2026-11-03T01:00:48.7409627Z #15 4.532 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:00:48.7413003Z #15 4.532 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:48.7415462Z #15 4.532 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:00:48.7419078Z #15 4.532 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:00:48.7421819Z #15 4.532 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:48.7423871Z #15 4.532 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:00:48.7424848Z #15 4.532     6 Warning(s)
+2026-11-03T01:00:48.7425125Z #15 4.532     0 Error(s)
+2026-11-03T01:00:48.7425352Z #15 4.532 
+2026-11-03T01:00:48.7425654Z #15 4.532 Time Elapsed 00:00:04.13
+2026-11-03T01:00:48.7425938Z #15 DONE 4.6s
+2026-11-03T01:00:48.7426059Z 
+2026-11-03T01:00:48.7426666Z #16 [publish 1/1] RUN dotnet publish "./api-simulador-habitacional.csproj" -c Release -o /app/publish /p:UseAppHost=false
+2026-11-03T01:00:49.4700686Z #16 0.880   Determining projects to restore...
+2026-11-03T01:00:49.9230058Z #16 1.333 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:00:49.9234231Z #16 1.333 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:49.9237930Z #16 1.333 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:00:50.0794925Z #16 1.339   All projects are up-to-date for restore.
+2026-11-03T01:00:50.1196569Z #16 1.529 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:00:50.1201804Z #16 1.529 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:00:50.1205887Z #16 1.529 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:00:50.6645950Z #16 2.075   api-simulador-habitacional -> /src/api-simulador-habitacional/bin/Release/net10.0/api-simulador-habitacional.dll
+2026-11-03T01:00:50.7912928Z #16 2.135   api-simulador-habitacional -> /app/publish/
+2026-11-03T01:00:50.7918579Z #16 DONE 2.2s
+2026-11-03T01:00:50.9806744Z 
+2026-11-03T01:00:50.9807655Z #17 [final 2/2] COPY --from=publish /app/publish .
+2026-11-03T01:00:50.9808352Z #17 DONE 0.0s
+2026-11-03T01:00:50.9808631Z 
+2026-11-03T01:00:50.9809343Z #18 exporting to image
+2026-11-03T01:00:50.9809946Z #18 exporting layers
+2026-11-03T01:00:51.1188624Z #18 exporting layers 0.3s done
+2026-11-03T01:00:51.1368305Z #18 writing image sha256:d9ca8b113d380fe5ce2826c5ea515eb0f657c77bf6a3c9554025182550f2356c done
+2026-11-03T01:00:51.1370293Z #18 naming to andrehs.azurecr.io/api-simulador-habitacional:3.1 done
+2026-11-03T01:00:51.1371230Z #18 DONE 0.3s
+2026-11-03T01:00:51.1572381Z Post job cleanup.
+2026-11-03T01:00:51.3013631Z (node:3729) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-03T01:00:51.3015808Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-03T01:00:51.3212868Z Post job cleanup.
+2026-11-03T01:00:51.4860331Z Post job cleanup.
+2026-11-03T01:00:51.5901844Z [command]/usr/bin/git version
+2026-11-03T01:00:51.5955206Z git version 2.56.0
+2026-11-03T01:00:51.6000322Z Temporarily overriding HOME='/home/runner/work/_temp/5e6d69d6-5d7e-4cba-b86c-e39a75621f9e' before making global git config changes
+2026-11-03T01:00:51.6001994Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-03T01:00:51.6006585Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:00:51.6066590Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-03T01:00:51.6120313Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-03T01:00:51.6470990Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-03T01:00:51.6529364Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-03T01:00:51.7005056Z Cleaning up orphan processes
+2026-11-03T01:00:51.7365000Z Terminate orphan process: pid (2580) (dotnet)
+2026-11-03T01:00:51.7404019Z Terminate orphan process: pid (2645) (VBCSCompiler)
+2026-11-03T01:00:51.7634463Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

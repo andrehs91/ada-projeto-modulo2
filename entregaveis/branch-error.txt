@@ -1,0 +1,1354 @@
+﻿2026-11-03T01:30:47.2882193Z Current runner version: '2.338.2'
+2026-11-03T01:30:47.2911843Z ##[group]Runner Image Provisioner
+2026-11-03T01:30:47.2912780Z Hosted Compute Agent
+2026-11-03T01:30:47.2913466Z Version: 20261021.618
+2026-11-03T01:30:47.2914181Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-11-03T01:30:47.2915027Z Build Date: 2026-10-21T00:45:21Z
+2026-11-03T01:30:47.2915815Z Worker ID: {fd7d4d4f-799a-47a5-b76f-839564527982}
+2026-11-03T01:30:47.2916790Z Region: eastus2
+2026-11-03T01:30:47.2917426Z Cloud: Azure
+2026-11-03T01:30:47.2918039Z ##[endgroup]
+2026-11-03T01:30:47.2919636Z ##[group]Operating System
+2026-11-03T01:30:47.2920424Z Ubuntu
+2026-11-03T01:30:47.2920980Z 24.04.5
+2026-11-03T01:30:47.2921548Z LTS
+2026-11-03T01:30:47.2922180Z ##[endgroup]
+2026-11-03T01:30:47.2922765Z ##[group]Runner Image
+2026-11-03T01:30:47.2923469Z Image: ubuntu-24.04
+2026-11-03T01:30:47.2924129Z Version: 20261025.353.1
+2026-11-03T01:30:47.2925481Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-03T01:30:47.2927546Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+2026-11-03T01:30:47.2929117Z ##[endgroup]
+2026-11-03T01:30:47.2931019Z ##[group]GITHUB_TOKEN Permissions
+2026-11-03T01:30:47.2934011Z Contents: read
+2026-11-03T01:30:47.2934648Z Metadata: read
+2026-11-03T01:30:47.2935315Z Packages: write
+2026-11-03T01:30:47.2936272Z ##[endgroup]
+2026-11-03T01:30:47.2939059Z Secret source: Actions
+2026-11-03T01:30:47.2940164Z Cache mode: write
+2026-11-03T01:30:47.2941095Z Prepare workflow directory
+2026-11-03T01:30:47.3513981Z Prepare all required actions
+2026-11-03T01:30:47.3563961Z Getting action download info
+2026-11-03T01:30:47.6107909Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-11-03T01:30:47.7665544Z Download action repository 'actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1' (SHA:26b0ec14cb23fa6904739307f278c14f94c95bf1)
+2026-11-03T01:30:47.9832017Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-03T01:30:48.1228009Z Download action repository 'anchore/sbom-action@fffec3d851af758d56fee099cf3fbf8aa8779843' (SHA:fffec3d851af758d56fee099cf3fbf8aa8779843)
+2026-11-03T01:30:48.2980607Z Download action repository 'aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1' (SHA:57a97c7e7821a5776cebc9bb87c984fa69cba8f1)
+2026-11-03T01:30:48.4470454Z Download action repository 'docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9' (SHA:c94ce9fb468520275223c153574b00df6fe4bcc9)
+2026-11-03T01:30:48.7044017Z Download action repository 'sigstore/cosign-installer@d7543c93d881b35a8faa02e8e3605f69b7a1ce62' (SHA:d7543c93d881b35a8faa02e8e3605f69b7a1ce62)
+2026-11-03T01:30:48.8060654Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-03T01:30:49.0843863Z Getting action download info
+2026-11-03T01:30:49.1698646Z Download action repository 'aquasecurity/setup-trivy@e6c2c5e321ed9123bda567646e2f96565e34abe1' (SHA:e6c2c5e321ed9123bda567646e2f96565e34abe1)
+2026-11-03T01:30:49.2709154Z Download action repository 'actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809' (SHA:0400d5f644dc74513175e3cd8d07132dd4860809)
+2026-11-03T01:30:49.4495651Z Getting action download info
+2026-11-03T01:30:49.5189901Z Download action repository 'actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8' (SHA:08c6903cd8c0fde910a37f88322edcfb5dd907a8)
+2026-11-03T01:30:49.7423254Z Complete job name: ci
+2026-11-03T01:30:49.8501638Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-11-03T01:30:49.8503382Z with:
+2026-11-03T01:30:49.8504221Z   persist-credentials: false
+2026-11-03T01:30:49.8505321Z   repository: andrehs91/ada-projeto-modulo2
+2026-11-03T01:30:49.8514617Z   token: ***
+2026-11-03T01:30:49.8515470Z   ssh-strict: true
+2026-11-03T01:30:49.8516741Z   ssh-user: git
+2026-11-03T01:30:49.8517558Z   clean: true
+2026-11-03T01:30:49.8518441Z   sparse-checkout-cone-mode: true
+2026-11-03T01:30:49.8519474Z   fetch-depth: 1
+2026-11-03T01:30:49.8520309Z   fetch-tags: false
+2026-11-03T01:30:49.8521159Z   show-progress: true
+2026-11-03T01:30:49.8522029Z   lfs: false
+2026-11-03T01:30:49.8522834Z   submodules: false
+2026-11-03T01:30:49.8523711Z   set-safe-directory: true
+2026-11-03T01:30:49.8524952Z env:
+2026-11-03T01:30:49.8525742Z   HAS_ERROR: false
+2026-11-03T01:30:49.8526762Z   OPA_VERSION: 1.22.0
+2026-11-03T01:30:49.8527677Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:30:49.8528689Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:30:49.8529638Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:30:49.8530618Z   BUILD_VERSION: 5.1
+2026-11-03T01:30:49.8549439Z ##[endgroup]
+2026-11-03T01:30:50.2108738Z Syncing repository: andrehs91/ada-projeto-modulo2
+2026-11-03T01:30:50.2110271Z ##[group]Getting Git version info
+2026-11-03T01:30:50.2110814Z Working directory is '/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2'
+2026-11-03T01:30:50.2111574Z [command]/usr/bin/git version
+2026-11-03T01:30:50.2235147Z git version 2.56.0
+2026-11-03T01:30:50.2261279Z ##[endgroup]
+2026-11-03T01:30:50.2287259Z Temporarily overriding HOME='/home/runner/work/_temp/d6774276-7cee-44ff-870b-d51576a19e3d' before making global git config changes
+2026-11-03T01:30:50.2289057Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-03T01:30:50.2290517Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:30:50.2346953Z Deleting the contents of '/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2'
+2026-11-03T01:30:50.2351312Z ##[group]Initializing the repository
+2026-11-03T01:30:50.2355740Z [command]/usr/bin/git init /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:30:50.2496314Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-03T01:30:50.2507003Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-03T01:30:50.2515530Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-03T01:30:50.2516952Z hint: call:
+2026-11-03T01:30:50.2517823Z hint:
+2026-11-03T01:30:50.2518506Z hint: 	git config --global init.defaultBranch <name>
+2026-11-03T01:30:50.2519164Z hint:
+2026-11-03T01:30:50.2519770Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-03T01:30:50.2520694Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-03T01:30:50.2521434Z hint:
+2026-11-03T01:30:50.2521874Z hint: 	git branch -m <name>
+2026-11-03T01:30:50.2522364Z hint:
+2026-11-03T01:30:50.2523083Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-03T01:30:50.2524312Z Initialized empty Git repository in /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.git/
+2026-11-03T01:30:50.2557083Z [command]/usr/bin/git remote add origin https://github.com/andrehs91/ada-projeto-modulo2
+2026-11-03T01:30:50.2610619Z ##[endgroup]
+2026-11-03T01:30:50.2611935Z ##[group]Disabling automatic garbage collection
+2026-11-03T01:30:50.2613061Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-03T01:30:50.2641898Z ##[endgroup]
+2026-11-03T01:30:50.2642764Z ##[group]Setting up auth
+2026-11-03T01:30:50.2651047Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-03T01:30:50.2693788Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-03T01:30:50.3225122Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-03T01:30:50.3287741Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-03T01:30:50.3571174Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-03T01:30:50.3620948Z ##[endgroup]
+2026-11-03T01:30:50.3621781Z ##[group]Fetching the repository
+2026-11-03T01:30:50.3636454Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0161d0d7cc040cce8ff70811e2cb6de1a9d25157:refs/remotes/origin/error
+2026-11-03T01:30:50.5839414Z From https://github.com/andrehs91/ada-projeto-modulo2
+2026-11-03T01:30:50.5840551Z  * [new ref]         0161d0d7cc040cce8ff70811e2cb6de1a9d25157 -> origin/error
+2026-11-03T01:30:50.5854198Z ##[endgroup]
+2026-11-03T01:30:50.5854710Z ##[group]Determining the checkout info
+2026-11-03T01:30:50.5855233Z ##[endgroup]
+2026-11-03T01:30:50.5857970Z [command]/usr/bin/git sparse-checkout disable
+2026-11-03T01:30:50.5923950Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-03T01:30:50.5964827Z ##[group]Checking out the ref
+2026-11-03T01:30:50.5972073Z [command]/usr/bin/git checkout --progress --force -B error refs/remotes/origin/error
+2026-11-03T01:30:50.6080379Z Switched to a new branch 'error'
+2026-11-03T01:30:50.6087725Z branch 'error' set up to track 'origin/error'.
+2026-11-03T01:30:50.6094338Z ##[endgroup]
+2026-11-03T01:30:50.6156265Z [command]/usr/bin/git log -1 --format=%H
+2026-11-03T01:30:50.6197234Z 0161d0d7cc040cce8ff70811e2cb6de1a9d25157
+2026-11-03T01:30:50.6209611Z ##[group]Removing auth
+2026-11-03T01:30:50.6215517Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-03T01:30:50.6264505Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-03T01:30:50.6536587Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-03T01:30:50.6575476Z http.https://github.com/.extraheader
+2026-11-03T01:30:50.6618514Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-03T01:30:50.6665337Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-03T01:30:50.6937533Z ##[endgroup]
+2026-11-03T01:30:50.7161126Z ##[group]Run set -euo pipefail
+2026-11-03T01:30:50.7161560Z [36;1mset -euo pipefail[0m
+2026-11-03T01:30:50.7161978Z [36;1mif [[ -f api-simulador-habitacional.slnx ]]; then[0m
+2026-11-03T01:30:50.7162465Z [36;1m  echo "APP_ROOT=$GITHUB_WORKSPACE" >> "$GITHUB_ENV"[0m
+2026-11-03T01:30:50.7163045Z [36;1melif [[ -f api-simulador-habitacional/api-simulador-habitacional.slnx ]]; then[0m
+2026-11-03T01:30:50.7163709Z [36;1m  echo "APP_ROOT=$GITHUB_WORKSPACE/api-simulador-habitacional" >> "$GITHUB_ENV"[0m
+2026-11-03T01:30:50.7164197Z [36;1melse[0m
+2026-11-03T01:30:50.7164698Z [36;1m  echo 'Solução não encontrada na raiz nem em api-simulador-habitacional/.' >&2[0m
+2026-11-03T01:30:50.7165188Z [36;1m  exit 1[0m
+2026-11-03T01:30:50.7165440Z [36;1mfi[0m
+2026-11-03T01:30:50.7166145Z [36;1m# O renderizador valida o provedor; ACR/ECR também aceitam o host sem namespace.[0m
+2026-11-03T01:30:50.7166762Z [36;1mif [[ ! "$REGISTRY" =~ ^[a-z0-9.-]+(/[a-z0-9_.-]+)*$ ]]; then[0m
+2026-11-03T01:30:50.7167618Z [36;1m  echo 'Configure vars.REGISTRY com host e caminho opcional, sem protocolo, tag ou barra final (ex.: meuregistry.azurecr.io ou ghcr.io/owner/repo).' >&2[0m
+2026-11-03T01:30:50.7168342Z [36;1m  exit 1[0m
+2026-11-03T01:30:50.7168596Z [36;1mfi[0m
+2026-11-03T01:30:50.7169039Z [36;1mecho "CI_IMAGE=${REGISTRY}/api-simulador-habitacional:${BUILD_VERSION}" >> "$GITHUB_ENV"[0m
+2026-11-03T01:30:50.7169638Z [36;1mecho "REGISTRY_HOST=${REGISTRY%%/*}" >> "$GITHUB_ENV"[0m
+2026-11-03T01:30:50.7193386Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:30:50.7194033Z env:
+2026-11-03T01:30:50.7194277Z   HAS_ERROR: false
+2026-11-03T01:30:50.7194543Z   OPA_VERSION: 1.22.0
+2026-11-03T01:30:50.7194821Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:30:50.7195111Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:30:50.7195398Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:30:50.7195701Z   BUILD_VERSION: 5.1
+2026-11-03T01:30:50.7196319Z ##[endgroup]
+2026-11-03T01:30:50.7343618Z ##[group]Run actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1
+2026-11-03T01:30:50.7344101Z with:
+2026-11-03T01:30:50.7344360Z   dotnet-version: 10.0.x
+2026-11-03T01:30:50.7344653Z   cache: false
+2026-11-03T01:30:50.7344899Z env:
+2026-11-03T01:30:50.7345134Z   HAS_ERROR: false
+2026-11-03T01:30:50.7345394Z   OPA_VERSION: 1.22.0
+2026-11-03T01:30:50.7345669Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:30:50.7346339Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:30:50.7346748Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:30:50.7347050Z   BUILD_VERSION: 5.1
+2026-11-03T01:30:50.7347440Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:30:50.7347972Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:30:50.7348397Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:30:50.7348710Z ##[endgroup]
+2026-11-03T01:30:50.8823991Z [command]/home/runner/work/_actions/actions/setup-dotnet/26b0ec14cb23fa6904739307f278c14f94c95bf1/externals/install-dotnet.sh --skip-non-versioned-files --runtime dotnet --channel LTS
+2026-11-03T01:30:51.4324563Z dotnet-install: .NET Core Runtime with version '10.0.14' is already installed.
+2026-11-03T01:30:51.4366542Z [command]/home/runner/work/_actions/actions/setup-dotnet/26b0ec14cb23fa6904739307f278c14f94c95bf1/externals/install-dotnet.sh --skip-non-versioned-files --channel 10.0
+2026-11-03T01:30:51.9212525Z dotnet-install: .NET Core SDK with version '10.0.403' is already installed.
+2026-11-03T01:30:51.9381761Z ##[group]Run dotnet test api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj --configuration Release
+2026-11-03T01:30:51.9382740Z [36;1mdotnet test api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj --configuration Release[0m
+2026-11-03T01:30:51.9405447Z shell: /usr/bin/bash -e {0}
+2026-11-03T01:30:51.9405716Z env:
+2026-11-03T01:30:51.9406202Z   HAS_ERROR: false
+2026-11-03T01:30:51.9406433Z   OPA_VERSION: 1.22.0
+2026-11-03T01:30:51.9406660Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:30:51.9406890Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:30:51.9407134Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:30:51.9407377Z   BUILD_VERSION: 5.1
+2026-11-03T01:30:51.9407698Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:30:51.9408158Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:30:51.9408509Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:30:51.9408833Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:30:51.9409092Z ##[endgroup]
+2026-11-03T01:30:57.1919959Z   Determining projects to restore...
+2026-11-03T01:30:58.2312389Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item. [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj]
+2026-11-03T01:31:01.5952069Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:01.5955802Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj]
+2026-11-03T01:31:01.5960423Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28 [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj]
+2026-11-03T01:31:01.7216595Z   Restored /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj (in 3.47 sec).
+2026-11-03T01:31:01.7218876Z   Restored /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj (in 3.48 sec).
+2026-11-03T01:31:01.9994762Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:02.1329878Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:31:02.1333056Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:02.1336210Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:31:08.8385621Z   api-simulador-habitacional -> /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/bin/Release/net10.0/api-simulador-habitacional.dll
+2026-11-03T01:31:09.7377134Z   api-simulador-habitacional.Tests -> /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/bin/Release/net10.0/api-simulador-habitacional.Tests.dll
+2026-11-03T01:31:09.7690985Z Test run for /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/bin/Release/net10.0/api-simulador-habitacional.Tests.dll (.NETCoreApp,Version=v10.0)
+2026-11-03T01:31:10.3641593Z A total of 1 test files matched the specified pattern.
+2026-11-03T01:31:13.0803803Z 
+2026-11-03T01:31:13.0863433Z Passed!  - Failed:     0, Passed:   194, Skipped:     0, Total:   194, Duration: 1 s - api-simulador-habitacional.Tests.dll (net10.0)
+2026-11-03T01:31:13.1472213Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-11-03T01:31:13.1472672Z with:
+2026-11-03T01:31:13.1472900Z   node-version: 22
+2026-11-03T01:31:13.1473158Z   always-auth: false
+2026-11-03T01:31:13.1473418Z   check-latest: false
+2026-11-03T01:31:13.1476648Z   token: ***
+2026-11-03T01:31:13.1476893Z env:
+2026-11-03T01:31:13.1477123Z   HAS_ERROR: false
+2026-11-03T01:31:13.1477378Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:13.1477661Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:13.1477937Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:13.1478209Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:13.1478486Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:13.1478837Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:13.1479313Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:13.1479704Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:13.1480009Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:13.1480732Z ##[endgroup]
+2026-11-03T01:31:13.3106919Z Found in cache @ /opt/hostedtoolcache/node/22.23.4/x64
+2026-11-03T01:31:13.3109983Z (node:3214) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-03T01:31:13.3111579Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-03T01:31:13.3113675Z ##[group]Environment details
+2026-11-03T01:31:16.4487153Z node: v22.23.4
+2026-11-03T01:31:16.4487629Z npm: 10.9.9
+2026-11-03T01:31:16.4488027Z yarn: 1.22.22
+2026-11-03T01:31:16.4489549Z ##[endgroup]
+2026-11-03T01:31:16.4619002Z ##[group]Run set -euo pipefail
+2026-11-03T01:31:16.4619348Z [36;1mset -euo pipefail[0m
+2026-11-03T01:31:16.4619725Z [36;1mmkdir -p "$RUNNER_TEMP/policy-tools" "$RUNNER_TEMP/policy-downloads"[0m
+2026-11-03T01:31:16.4620152Z [36;1mcd "$RUNNER_TEMP/policy-downloads"[0m
+2026-11-03T01:31:16.4620646Z [36;1mopa_url="https://github.com/open-policy-agent/opa/releases/download/v${OPA_VERSION}"[0m
+2026-11-03T01:31:16.4621360Z [36;1mcurl --fail --silent --show-error --location "$opa_url/opa_linux_amd64_static" -o opa_linux_amd64_static[0m
+2026-11-03T01:31:16.4622069Z [36;1mcurl --fail --silent --show-error --location "$opa_url/opa_linux_amd64_static.sha256" -o opa.sha256[0m
+2026-11-03T01:31:16.4622702Z [36;1mecho "$(awk '{print $1}' opa.sha256)  opa_linux_amd64_static" | sha256sum --check -[0m
+2026-11-03T01:31:16.4623254Z [36;1minstall -m 0755 opa_linux_amd64_static "$RUNNER_TEMP/policy-tools/opa"[0m
+2026-11-03T01:31:16.4623765Z [36;1marchive="conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz"[0m
+2026-11-03T01:31:16.4624358Z [36;1mconftest_url="https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}"[0m
+2026-11-03T01:31:16.4625040Z [36;1mcurl --fail --silent --show-error --location "$conftest_url/$archive" -o "$archive"[0m
+2026-11-03T01:31:16.4625657Z [36;1mcurl --fail --silent --show-error --location "$conftest_url/checksums.txt" -o checksums.txt[0m
+2026-11-03T01:31:16.4626483Z [36;1mgrep "  ${archive}$" checksums.txt | sha256sum --check -[0m
+2026-11-03T01:31:16.4626845Z [36;1mtar -xzf "$archive" conftest[0m
+2026-11-03T01:31:16.4627204Z [36;1minstall -m 0755 conftest "$RUNNER_TEMP/policy-tools/conftest"[0m
+2026-11-03T01:31:16.4627631Z [36;1mecho "$RUNNER_TEMP/policy-tools" >> "$GITHUB_PATH"[0m
+2026-11-03T01:31:16.4654218Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:31:16.4654563Z env:
+2026-11-03T01:31:16.4654757Z   HAS_ERROR: false
+2026-11-03T01:31:16.4654977Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:16.4655229Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:16.4655466Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:16.4655703Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:16.4656288Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:16.4656619Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:16.4657076Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:16.4657442Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:16.4657713Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:16.4657955Z ##[endgroup]
+2026-11-03T01:31:17.1133120Z opa_linux_amd64_static: OK
+2026-11-03T01:31:17.7094572Z conftest_0.71.1_Linux_x86_64.tar.gz: OK
+2026-11-03T01:31:18.1851096Z ##[group]Run node scripts/render-ci.mjs
+2026-11-03T01:31:18.1851460Z [36;1mnode scripts/render-ci.mjs[0m
+2026-11-03T01:31:18.1871682Z shell: /usr/bin/bash -e {0}
+2026-11-03T01:31:18.1871937Z env:
+2026-11-03T01:31:18.1872129Z   HAS_ERROR: false
+2026-11-03T01:31:18.1872344Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:18.1872565Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:18.1872796Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:18.1873043Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:18.1873291Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:18.1873609Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:18.1874071Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:18.1874726Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:18.1875002Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:18.1875252Z ##[endgroup]
+2026-11-03T01:31:18.2236257Z Manifestos Kubernetes renderizados em /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/k8s com a imagem andrehs.azurecr.io/api-simulador-habitacional:5.1; backend somente HTTP.
+2026-11-03T01:31:18.2325645Z ##[group]Run dotnet restore api-simulador-habitacional.slnx
+2026-11-03T01:31:18.2326484Z [36;1mdotnet restore api-simulador-habitacional.slnx[0m
+2026-11-03T01:31:18.2327022Z [36;1mdotnet build api-simulador-habitacional.slnx --configuration Release --no-restore[0m
+2026-11-03T01:31:18.2347456Z shell: /usr/bin/bash -e {0}
+2026-11-03T01:31:18.2347708Z env:
+2026-11-03T01:31:18.2347903Z   HAS_ERROR: false
+2026-11-03T01:31:18.2348111Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:18.2348344Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:18.2348588Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:18.2348818Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:18.2349069Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:18.2349378Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:18.2349814Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:18.2350161Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:18.2350434Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:18.2350700Z ##[endgroup]
+2026-11-03T01:31:19.2306932Z   Determining projects to restore...
+2026-11-03T01:31:19.7153268Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.slnx]
+2026-11-03T01:31:19.7159863Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item. [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.slnx]
+2026-11-03T01:31:19.7166158Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.slnx]
+2026-11-03T01:31:19.7171716Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28 [/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.slnx]
+2026-11-03T01:31:19.7212211Z   All projects are up-to-date for restore.
+2026-11-03T01:31:20.4352369Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:31:20.4358455Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:20.4363441Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:31:20.5447634Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:20.8542543Z   api-simulador-habitacional -> /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/bin/Release/net10.0/api-simulador-habitacional.dll
+2026-11-03T01:31:21.1719777Z   api-simulador-habitacional.Tests -> /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/bin/Release/net10.0/api-simulador-habitacional.Tests.dll
+2026-11-03T01:31:21.2381197Z 
+2026-11-03T01:31:21.2381743Z Build succeeded.
+2026-11-03T01:31:21.2382014Z 
+2026-11-03T01:31:21.2384842Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:31:21.2387902Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:21.2390276Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:31:21.2392641Z /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/api-simulador-habitacional.Tests/api-simulador-habitacional.Tests.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:21.2393760Z     4 Warning(s)
+2026-11-03T01:31:21.2393975Z     0 Error(s)
+2026-11-03T01:31:21.2394093Z 
+2026-11-03T01:31:21.2394247Z Time Elapsed 00:00:01.20
+2026-11-03T01:31:21.2611500Z ##[group]Run docker build --pull --file api-simulador-habitacional/Dockerfile --target final --tag "$CI_IMAGE" .
+2026-11-03T01:31:21.2612346Z [36;1mdocker build --pull --file api-simulador-habitacional/Dockerfile --target final --tag "$CI_IMAGE" .[0m
+2026-11-03T01:31:21.2633228Z shell: /usr/bin/bash -e {0}
+2026-11-03T01:31:21.2633638Z env:
+2026-11-03T01:31:21.2633953Z   HAS_ERROR: false
+2026-11-03T01:31:21.2634293Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:21.2634661Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:21.2634955Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:21.2635214Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:21.2635461Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:21.2635788Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:21.2636588Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:21.2636953Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:21.2637230Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:21.2637520Z ##[endgroup]
+2026-11-03T01:31:25.6318174Z #0 building with "default" instance using docker driver
+2026-11-03T01:31:25.6318649Z 
+2026-11-03T01:31:25.6319021Z #1 [internal] load build definition from Dockerfile
+2026-11-03T01:31:25.6319717Z #1 transferring dockerfile: 832B 0.1s done
+2026-11-03T01:31:25.6320173Z #1 DONE 0.1s
+2026-11-03T01:31:25.6320352Z 
+2026-11-03T01:31:25.6320845Z #2 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:10.0
+2026-11-03T01:31:25.6321452Z #2 DONE 0.1s
+2026-11-03T01:31:25.6321658Z 
+2026-11-03T01:31:25.6322145Z #3 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0
+2026-11-03T01:31:25.7722621Z #3 DONE 0.2s
+2026-11-03T01:31:25.7723075Z 
+2026-11-03T01:31:25.7726719Z #4 [internal] load .dockerignore
+2026-11-03T01:31:25.7727837Z #4 transferring context: 556B done
+2026-11-03T01:31:25.7729121Z #4 DONE 0.0s
+2026-11-03T01:31:25.7729360Z 
+2026-11-03T01:31:25.7729683Z #5 [internal] load build context
+2026-11-03T01:31:25.7730377Z #5 transferring context: 62.31kB 0.0s done
+2026-11-03T01:31:25.7730891Z #5 DONE 0.0s
+2026-11-03T01:31:25.7731110Z 
+2026-11-03T01:31:25.7731743Z #6 [base 1/2] FROM mcr.microsoft.com/dotnet/aspnet:10.0@sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee
+2026-11-03T01:31:25.7732811Z #6 resolve mcr.microsoft.com/dotnet/aspnet:10.0@sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee done
+2026-11-03T01:31:25.7733729Z #6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 14.68MB / 29.77MB 0.1s
+2026-11-03T01:31:25.7734544Z #6 sha256:aa37eb26c52c0ddbcd32254925809fbdc9658dfd60665475f5a8bdbecc5d516e 8.39MB / 17.16MB 0.1s
+2026-11-03T01:31:25.7735342Z #6 sha256:de0ee358cdd672f7017a003bed21e9ac9ed48a27c922a59b18175b6e82fa7fee 1.08kB / 1.08kB done
+2026-11-03T01:31:25.7741328Z #6 sha256:43cbcf11fd6f88c0375c9c0f7fe59af619abeb323befe5f57dc1502b5a05d8c3 1.58kB / 1.58kB done
+2026-11-03T01:31:25.7742491Z #6 sha256:cfeca9a55d0f8353620d75e8ccb882f000d314e8ce43290014d4467827de8747 3.13kB / 3.13kB done
+2026-11-03T01:31:25.7743996Z #6 sha256:1f8c14bc5847dd84261170b482818d3a7edbc43ea9063ce4930da58b358fa5d0 3.60kB / 3.60kB 0.1s done
+2026-11-03T01:31:25.7744834Z #6 sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 2.10MB / 37.62MB 0.1s
+2026-11-03T01:31:25.8744314Z #6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 29.77MB / 29.77MB 0.2s done
+2026-11-03T01:31:25.8745799Z #6 sha256:aa37eb26c52c0ddbcd32254925809fbdc9658dfd60665475f5a8bdbecc5d516e 17.16MB / 17.16MB 0.1s done
+2026-11-03T01:31:25.8747390Z #6 sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 25.17MB / 37.62MB 0.2s
+2026-11-03T01:31:25.8748241Z #6 sha256:f3c239e1a8382a39fd721de7ad1bd27a5821274273b253a7e6cf50c2cac1200b 156B / 156B 0.2s done
+2026-11-03T01:31:25.8749406Z #6 sha256:017220401ab5b691e12f8739a2b64a7f360cef11b805a2fa57a90af907173c18 1.05MB / 13.09MB 0.2s
+2026-11-03T01:31:26.0070463Z #6 sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 37.62MB / 37.62MB 0.3s done
+2026-11-03T01:31:26.0072136Z #6 sha256:017220401ab5b691e12f8739a2b64a7f360cef11b805a2fa57a90af907173c18 13.09MB / 13.09MB 0.3s done
+2026-11-03T01:31:26.0077126Z #6 extracting sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 0.1s
+2026-11-03T01:31:27.0747124Z #6 extracting sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 1.0s done
+2026-11-03T01:31:27.1874630Z #6 extracting sha256:aa37eb26c52c0ddbcd32254925809fbdc9658dfd60665475f5a8bdbecc5d516e 0.1s
+2026-11-03T01:31:27.7368705Z #6 extracting sha256:aa37eb26c52c0ddbcd32254925809fbdc9658dfd60665475f5a8bdbecc5d516e 0.5s done
+2026-11-03T01:31:28.4241004Z #6 extracting sha256:1f8c14bc5847dd84261170b482818d3a7edbc43ea9063ce4930da58b358fa5d0
+2026-11-03T01:31:28.5516151Z #6 extracting sha256:1f8c14bc5847dd84261170b482818d3a7edbc43ea9063ce4930da58b358fa5d0 done
+2026-11-03T01:31:28.5517958Z #6 extracting sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 0.1s
+2026-11-03T01:31:28.8821365Z #6 extracting sha256:f3c239e1a8382a39fd721de7ad1bd27a5821274273b253a7e6cf50c2cac1200b
+2026-11-03T01:31:28.9961608Z #6 extracting sha256:f3c239e1a8382a39fd721de7ad1bd27a5821274273b253a7e6cf50c2cac1200b done
+2026-11-03T01:31:28.9964112Z #6 extracting sha256:017220401ab5b691e12f8739a2b64a7f360cef11b805a2fa57a90af907173c18 0.1s
+2026-11-03T01:31:29.1055423Z #6 extracting sha256:017220401ab5b691e12f8739a2b64a7f360cef11b805a2fa57a90af907173c18 0.1s done
+2026-11-03T01:31:29.1056691Z #6 DONE 3.4s
+2026-11-03T01:31:29.1056923Z 
+2026-11-03T01:31:29.1057099Z #7 [base 2/2] WORKDIR /app
+2026-11-03T01:31:29.1057363Z #7 DONE 0.0s
+2026-11-03T01:31:29.1057487Z 
+2026-11-03T01:31:29.1058063Z #8 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b
+2026-11-03T01:31:29.1061283Z #8 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b done
+2026-11-03T01:31:29.1062210Z #8 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 29.77MB / 29.77MB 0.2s done
+2026-11-03T01:31:29.1063031Z #8 sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b 1.08kB / 1.08kB done
+2026-11-03T01:31:29.1063837Z #8 sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 37.62MB / 37.62MB 0.3s done
+2026-11-03T01:31:29.1064623Z #8 sha256:3192b8163619903b1b48ea1f37c042230d3c375a3812165971facb1781112b39 5.64kB / 5.64kB done
+2026-11-03T01:31:29.1065441Z #8 sha256:aa37eb26c52c0ddbcd32254925809fbdc9658dfd60665475f5a8bdbecc5d516e 17.16MB / 17.16MB 0.1s done
+2026-11-03T01:31:29.1067593Z #8 sha256:1f8c14bc5847dd84261170b482818d3a7edbc43ea9063ce4930da58b358fa5d0 3.60kB / 3.60kB 0.1s done
+2026-11-03T01:31:29.1068759Z #8 sha256:9c7b6b263d9d4c2e4718e16dae6d75cd8f4b5ccf206f1e7d48a98eb429981b03 2.64kB / 2.64kB done
+2026-11-03T01:31:29.1070157Z #8 sha256:f3c239e1a8382a39fd721de7ad1bd27a5821274273b253a7e6cf50c2cac1200b 156B / 156B 0.2s done
+2026-11-03T01:31:29.1071633Z #8 sha256:7ed664a3150a862fb3aab545ecafd771f6532bd31ab4881e9b570d3f1e7a6edd 24.45MB / 24.45MB 0.3s done
+2026-11-03T01:31:29.1073097Z #8 sha256:017220401ab5b691e12f8739a2b64a7f360cef11b805a2fa57a90af907173c18 13.09MB / 13.09MB 0.2s done
+2026-11-03T01:31:29.1074597Z #8 sha256:7a3f8cedb109146f80dca176bbb35fb0e2a737392d121ce9b328dd70d6977f7a 21.11MB / 21.11MB 0.4s done
+2026-11-03T01:31:29.1076279Z #8 sha256:cb09e947f848c222feefb5d20fbc9c3fd4dd80d61c4e3d93e961a2b2f3123611 194.31MB / 194.31MB 1.4s done
+2026-11-03T01:31:29.1077755Z #8 sha256:3465c8a1b95f5898d31857b639729a75334c3c647861a0bd158871420485d488 21.03MB / 21.03MB 0.5s done
+2026-11-03T01:31:29.1079147Z #8 sha256:463481a04bb2714ed800071b522ff9715918347e550ce0f750f866eb2ba70001 535B / 535B 0.3s done
+2026-11-03T01:31:29.1080524Z #8 extracting sha256:d12f340d58c7c1903446a5acf78dd98e4662adae061cc5e9f4500c9c9e98d160 0.4s done
+2026-11-03T01:31:29.1081914Z #8 extracting sha256:017220401ab5b691e12f8739a2b64a7f360cef11b805a2fa57a90af907173c18 0.1s done
+2026-11-03T01:31:29.1083463Z #8 extracting sha256:7ed664a3150a862fb3aab545ecafd771f6532bd31ab4881e9b570d3f1e7a6edd
+2026-11-03T01:31:29.2850203Z #8 ...
+2026-11-03T01:31:29.2850505Z 
+2026-11-03T01:31:29.2850808Z #9 [final 1/2] WORKDIR /app
+2026-11-03T01:31:29.2851281Z #9 DONE 0.0s
+2026-11-03T01:31:29.2851490Z 
+2026-11-03T01:31:29.2852582Z #8 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:de4fe90a98845d75910b9769662465c84de1a934665c431279d1382b2bddc02b
+2026-11-03T01:31:29.9923314Z #8 extracting sha256:7ed664a3150a862fb3aab545ecafd771f6532bd31ab4881e9b570d3f1e7a6edd 0.8s done
+2026-11-03T01:31:29.9924742Z #8 extracting sha256:cb09e947f848c222feefb5d20fbc9c3fd4dd80d61c4e3d93e961a2b2f3123611
+2026-11-03T01:31:33.4190640Z #8 extracting sha256:cb09e947f848c222feefb5d20fbc9c3fd4dd80d61c4e3d93e961a2b2f3123611 3.3s done
+2026-11-03T01:31:34.3293301Z #8 extracting sha256:7a3f8cedb109146f80dca176bbb35fb0e2a737392d121ce9b328dd70d6977f7a
+2026-11-03T01:31:34.4303993Z #8 extracting sha256:7a3f8cedb109146f80dca176bbb35fb0e2a737392d121ce9b328dd70d6977f7a 0.1s done
+2026-11-03T01:31:34.4306028Z #8 extracting sha256:463481a04bb2714ed800071b522ff9715918347e550ce0f750f866eb2ba70001
+2026-11-03T01:31:34.5597545Z #8 extracting sha256:463481a04bb2714ed800071b522ff9715918347e550ce0f750f866eb2ba70001 done
+2026-11-03T01:31:34.5600021Z #8 extracting sha256:3465c8a1b95f5898d31857b639729a75334c3c647861a0bd158871420485d488 0.1s
+2026-11-03T01:31:35.0128962Z #8 extracting sha256:3465c8a1b95f5898d31857b639729a75334c3c647861a0bd158871420485d488 0.3s done
+2026-11-03T01:31:35.0129516Z #8 DONE 9.2s
+2026-11-03T01:31:35.0129646Z 
+2026-11-03T01:31:35.0129791Z #10 [build 2/7] WORKDIR /src
+2026-11-03T01:31:35.0130044Z #10 DONE 0.0s
+2026-11-03T01:31:35.0130168Z 
+2026-11-03T01:31:35.0130755Z #11 [build 3/7] COPY [api-simulador-habitacional/api-simulador-habitacional.csproj, api-simulador-habitacional/]
+2026-11-03T01:31:35.0131700Z #11 DONE 0.0s
+2026-11-03T01:31:35.0131820Z 
+2026-11-03T01:31:35.0132286Z #12 [build 4/7] RUN dotnet restore "./api-simulador-habitacional/api-simulador-habitacional.csproj"
+2026-11-03T01:31:35.6551798Z #12 0.793   Determining projects to restore...
+2026-11-03T01:31:36.0109501Z #12 1.148 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:31:37.6223301Z #12 2.760 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:37.6226148Z #12 2.760 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:31:37.7467820Z #12 2.884   Restored /src/api-simulador-habitacional/api-simulador-habitacional.csproj (in 1.73 sec).
+2026-11-03T01:31:37.8470587Z #12 DONE 3.0s
+2026-11-03T01:31:37.8470869Z 
+2026-11-03T01:31:37.8471108Z #13 [build 5/7] COPY . .
+2026-11-03T01:31:37.8471432Z #13 DONE 0.0s
+2026-11-03T01:31:38.0096979Z 
+2026-11-03T01:31:38.0099525Z #14 [build 6/7] WORKDIR /src/api-simulador-habitacional
+2026-11-03T01:31:38.0099922Z #14 DONE 0.0s
+2026-11-03T01:31:38.0100061Z 
+2026-11-03T01:31:38.0100513Z #15 [build 7/7] RUN dotnet build "./api-simulador-habitacional.csproj" -c Release -o /app/build
+2026-11-03T01:31:38.7234274Z #15 0.864   Determining projects to restore...
+2026-11-03T01:31:39.1076795Z #15 1.248 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:31:39.1081153Z #15 1.248 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:39.2636493Z #15 1.248 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:31:39.2637800Z #15 1.254   All projects are up-to-date for restore.
+2026-11-03T01:31:39.3843207Z #15 1.525 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:31:39.3846503Z #15 1.525 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:39.3848916Z #15 1.525 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:31:42.0541219Z #15 4.195   api-simulador-habitacional -> /app/build/api-simulador-habitacional.dll
+2026-11-03T01:31:42.2883872Z #15 4.209 
+2026-11-03T01:31:42.2884681Z #15 4.210 Build succeeded.
+2026-11-03T01:31:42.2885477Z #15 4.210 
+2026-11-03T01:31:42.2888387Z #15 4.210 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:31:42.2892088Z #15 4.210 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:42.2896223Z #15 4.210 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:31:42.2900190Z #15 4.210 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:31:42.2903824Z #15 4.210 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:42.2906971Z #15 4.210 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:31:42.2908773Z #15 4.210     6 Warning(s)
+2026-11-03T01:31:42.2909269Z #15 4.210     0 Error(s)
+2026-11-03T01:31:42.2909665Z #15 4.210 
+2026-11-03T01:31:42.2910158Z #15 4.210 Time Elapsed 00:00:03.85
+2026-11-03T01:31:42.2910610Z #15 DONE 4.3s
+2026-11-03T01:31:42.2910831Z 
+2026-11-03T01:31:42.2911885Z #16 [publish 1/1] RUN dotnet publish "./api-simulador-habitacional.csproj" -c Release -o /app/publish /p:UseAppHost=false
+2026-11-03T01:31:42.9580204Z #16 0.820   Determining projects to restore...
+2026-11-03T01:31:43.3843196Z #16 1.246 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:31:43.5404563Z #16 1.246 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:43.5408310Z #16 1.246 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:31:43.5410241Z #16 1.252   All projects are up-to-date for restore.
+2026-11-03T01:31:43.5735277Z #16 1.435 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1510: PackageReference System.Text.Encodings.Web will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.
+2026-11-03T01:31:43.5739878Z #16 1.435 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1903: Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+2026-11-03T01:31:43.5743677Z #16 1.435 /src/api-simulador-habitacional/api-simulador-habitacional.csproj : warning NU1904: Package 'System.Text.Encodings.Web' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ghhp-997w-qr28
+2026-11-03T01:31:44.0743063Z #16 1.936   api-simulador-habitacional -> /src/api-simulador-habitacional/bin/Release/net10.0/api-simulador-habitacional.dll
+2026-11-03T01:31:44.1866287Z #16 1.990   api-simulador-habitacional -> /app/publish/
+2026-11-03T01:31:44.1896722Z #16 DONE 2.0s
+2026-11-03T01:31:44.3794129Z 
+2026-11-03T01:31:44.3795074Z #17 [final 2/2] COPY --from=publish /app/publish .
+2026-11-03T01:31:44.3796193Z #17 DONE 0.0s
+2026-11-03T01:31:44.3796617Z 
+2026-11-03T01:31:44.3797020Z #18 exporting to image
+2026-11-03T01:31:44.3797700Z #18 exporting layers
+2026-11-03T01:31:45.0095365Z #18 exporting layers 0.8s done
+2026-11-03T01:31:45.0303361Z #18 writing image sha256:2666eaba57955db8bbaeef3e8948c7514aedcda8130b05e2b198650a46572e40 done
+2026-11-03T01:31:45.0304706Z #18 naming to andrehs.azurecr.io/api-simulador-habitacional:5.1 done
+2026-11-03T01:31:45.0305324Z #18 DONE 0.8s
+2026-11-03T01:31:45.0396698Z ##[group]Run bash scripts/validate.sh
+2026-11-03T01:31:45.0397092Z [36;1mbash scripts/validate.sh[0m
+2026-11-03T01:31:45.0417870Z shell: /usr/bin/bash -e {0}
+2026-11-03T01:31:45.0418126Z env:
+2026-11-03T01:31:45.0418318Z   HAS_ERROR: false
+2026-11-03T01:31:45.0418550Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:45.0418782Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:45.0419014Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:45.0419250Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:45.0419500Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:45.0419817Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:45.0420261Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:45.0420630Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:45.0420897Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:45.0421140Z ##[endgroup]
+2026-11-03T01:31:45.0510063Z === Sintaxe Rego ===
+2026-11-03T01:31:45.0875008Z OK: Sintaxe Rego
+2026-11-03T01:31:45.0876973Z === Testes Rego ===
+2026-11-03T01:31:45.1255319Z api-simulador-habitacional/policy/configuration_test.rego:32:
+2026-11-03T01:31:45.1257168Z data.configuration.test_ignore_regular_configmap: PASS (645.505µs)
+2026-11-03T01:31:45.1265685Z api-simulador-habitacional/policy/configuration_test.rego:11:
+2026-11-03T01:31:45.1267207Z data.configuration.test_allow_pem_structure: PASS (2.100017ms)
+2026-11-03T01:31:45.1268574Z api-simulador-habitacional/policy/configuration_test.rego:28:
+2026-11-03T01:31:45.1269726Z data.configuration.test_deny_non_pem: PASS (2.453703ms)
+2026-11-03T01:31:45.1301291Z 
+2026-11-03T01:31:45.1302383Z api-simulador-habitacional/policy/container_build_test.rego:18:
+2026-11-03T01:31:45.1303721Z data.dockerfile.test_deny_no_from: PASS (1.039662ms)
+2026-11-03T01:31:45.1348158Z api-simulador-habitacional/policy/container_build_test.rego:17:
+2026-11-03T01:31:45.1376907Z data.dockerfile.test_warn_mutable_bases: PASS (7.802363ms)
+2026-11-03T01:31:45.1463072Z api-simulador-habitacional/policy/container_build_test.rego:16:
+2026-11-03T01:31:45.1483347Z data.dockerfile.test_allow_inherited_nonroot: PASS (19.27939ms)
+2026-11-03T01:31:45.1489997Z api-simulador-habitacional/policy/container_build_test.rego:19:
+2026-11-03T01:31:45.1491013Z data.dockerfile.test_deny_root_override: PASS (15.155035ms)
+2026-11-03T01:31:45.1491947Z api-simulador-habitacional/policy/container_build_test.rego:23:
+2026-11-03T01:31:45.1492838Z data.dockerfile.test_deny_root_group: PASS (17.256326ms)
+2026-11-03T01:31:45.1618750Z api-simulador-habitacional/policy/container_build_test.rego:27:
+2026-11-03T01:31:45.1623852Z data.dockerfile.test_deny_unknown_variable: PASS (14.010101ms)
+2026-11-03T01:31:45.1624871Z api-simulador-habitacional/policy/container_build_test.rego:31:
+2026-11-03T01:31:45.1627283Z data.dockerfile.test_deny_missing_user: PASS (8.917785ms)
+2026-11-03T01:31:45.1628484Z api-simulador-habitacional/policy/container_build_test.rego:39:
+2026-11-03T01:31:45.1629551Z data.dockerfile.test_allow_numeric_stage_parent: PASS (14.915891ms)
+2026-11-03T01:31:45.1630625Z api-simulador-habitacional/policy/container_build_test.rego:35:
+2026-11-03T01:31:45.1656840Z data.dockerfile.test_no_inheritance_from_unrelated_stage: PASS (18.208036ms)
+2026-11-03T01:31:45.1733601Z api-simulador-habitacional/policy/container_build_test.rego:54:
+2026-11-03T01:31:45.1734477Z data.dockerfile.test_deny_add: PASS (8.978129ms)
+2026-11-03T01:31:45.1734854Z 
+2026-11-03T01:31:45.1735270Z api-simulador-habitacional/policy/image_test.rego:5:
+2026-11-03T01:31:45.1736547Z data.image.test_allow_nonroot_image: PASS (421.237µs)
+2026-11-03T01:31:45.1737336Z api-simulador-habitacional/policy/image_test.rego:8:
+2026-11-03T01:31:45.1738108Z data.image.test_allow_cmd: PASS (343.552µs)
+2026-11-03T01:31:45.1738909Z 
+2026-11-03T01:31:45.1739419Z api-simulador-habitacional/policy/container_build_test.rego:58:
+2026-11-03T01:31:45.1740359Z data.dockerfile.test_deny_privileged_port: PASS (8.490357ms)
+2026-11-03T01:31:45.1741703Z api-simulador-habitacional/policy/container_build_test.rego:49:
+2026-11-03T01:31:45.1742669Z data.dockerfile.test_allow_digest: PASS (11.197833ms)
+2026-11-03T01:31:45.1743117Z 
+2026-11-03T01:31:45.1743538Z api-simulador-habitacional/policy/image_test.rego:16:
+2026-11-03T01:31:45.1744537Z data.image.test_deny_missing_config: PASS (349.564µs)
+2026-11-03T01:31:45.1745378Z api-simulador-habitacional/policy/image_test.rego:17:
+2026-11-03T01:31:45.1746577Z data.image.test_deny_no_command: PASS (360.132µs)
+2026-11-03T01:31:45.1747487Z api-simulador-habitacional/policy/image_test.rego:11:
+2026-11-03T01:31:45.1748304Z data.image.test_deny_invalid_users: PASS (1.091468ms)
+2026-11-03T01:31:45.1890953Z 
+2026-11-03T01:31:45.1891923Z api-simulador-habitacional/policy/sbom_test.rego:27:
+2026-11-03T01:31:45.1892985Z data.sbom.test_allow_cyclonedx: PASS (11.890628ms)
+2026-11-03T01:31:45.1893926Z api-simulador-habitacional/policy/sbom_test.rego:18:
+2026-11-03T01:31:45.1894771Z data.sbom.test_missing_license_warns_without_denial: PASS (15.712623ms)
+2026-11-03T01:31:45.1936617Z api-simulador-habitacional/policy/sbom_test.rego:28:
+2026-11-03T01:31:45.1956939Z data.sbom.test_allow_spdx: PASS (19.520087ms)
+2026-11-03T01:31:45.2336223Z 
+2026-11-03T01:31:45.2387314Z api-simulador-habitacional/policy/container_build_test.rego:43:
+2026-11-03T01:31:45.2417264Z data.dockerfile.test_deny_invalid_bases: PASS (69.510292ms)
+2026-11-03T01:31:45.2446505Z 
+2026-11-03T01:31:45.2476938Z api-simulador-habitacional/policy/sbom_test.rego:44:
+2026-11-03T01:31:45.2506921Z data.sbom.test_license_absent_precise: PASS (26.856405ms)
+2026-11-03T01:31:45.2518136Z api-simulador-habitacional/policy/sbom_test.rego:60:
+2026-11-03T01:31:45.2546956Z data.sbom.test_allow_permissive_expressions: PASS (20.753932ms)
+2026-11-03T01:31:45.2626368Z api-simulador-habitacional/policy/sbom_test.rego:65:
+2026-11-03T01:31:45.2627328Z data.sbom.test_reject_mixed_expression_precise: PASS (15.799659ms)
+2026-11-03T01:31:45.2628021Z api-simulador-habitacional/policy/sbom_test.rego:52:
+2026-11-03T01:31:45.2628562Z data.sbom.test_license_unknown_precise: PASS (42.14341ms)
+2026-11-03T01:31:45.2851577Z api-simulador-habitacional/policy/sbom_test.rego:76:
+2026-11-03T01:31:45.2852148Z data.sbom.test_reject_multiple_licenses: PASS (10.107543ms)
+2026-11-03T01:31:45.3087210Z api-simulador-habitacional/policy/sbom_test.rego:71:
+2026-11-03T01:31:45.3116967Z data.sbom.test_reject_unreviewed_expression: PASS (33.173142ms)
+2026-11-03T01:31:45.3139553Z api-simulador-habitacional/policy/sbom_test.rego:85:
+2026-11-03T01:31:45.3166803Z data.sbom.test_missing_name: PASS (6.411344ms)
+2026-11-03T01:31:45.3176798Z api-simulador-habitacional/policy/sbom_test.rego:86:
+2026-11-03T01:31:45.3196692Z data.sbom.test_missing_version: PASS (11.125448ms)
+2026-11-03T01:31:45.3216684Z api-simulador-habitacional/policy/sbom_test.rego:87:
+2026-11-03T01:31:45.3253567Z data.sbom.test_missing_scope_fail_closed: PASS (3.811248ms)
+2026-11-03T01:31:45.3256702Z api-simulador-habitacional/policy/sbom_test.rego:91:
+2026-11-03T01:31:45.3276822Z data.sbom.test_no_application_packages_fail_closed: PASS (4.189304ms)
+2026-11-03T01:31:45.3298272Z api-simulador-habitacional/policy/sbom_test.rego:95:
+2026-11-03T01:31:45.3336619Z data.sbom.test_invalid_document: PASS (5.056334ms)
+2026-11-03T01:31:45.3436960Z api-simulador-habitacional/policy/sbom_test.rego:80:
+2026-11-03T01:31:45.3438318Z data.sbom.test_invalid_purls: PASS (60.373656ms)
+2026-11-03T01:31:45.3458396Z api-simulador-habitacional/policy/sbom_test.rego:29:
+2026-11-03T01:31:45.3459377Z data.sbom.test_allow_permissive_ids: PASS (154.518349ms)
+2026-11-03T01:31:45.3587021Z api-simulador-habitacional/policy/sbom_test.rego:125:
+2026-11-03T01:31:45.3646756Z data.sbom.test_spdx_absent_precise: PASS (9.583839ms)
+2026-11-03T01:31:45.3706770Z api-simulador-habitacional/policy/sbom_test.rego:100:
+2026-11-03T01:31:45.3736983Z data.sbom.test_undetermined_license_warns_without_denial: PASS (34.025208ms)
+2026-11-03T01:31:45.3738035Z api-simulador-habitacional/policy/sbom_test.rego:128:
+2026-11-03T01:31:45.3739250Z data.sbom.test_spdx_concluded_copyleft: PASS (4.118031ms)
+2026-11-03T01:31:45.3740213Z api-simulador-habitacional/policy/sbom_test.rego:113:
+2026-11-03T01:31:45.3767198Z data.sbom.test_explicit_unknown_license_remains_denied: PASS (28.068313ms)
+2026-11-03T01:31:45.3794568Z api-simulador-habitacional/policy/sbom_test.rego:131:
+2026-11-03T01:31:45.3866784Z data.sbom.test_spdx_missing_purl: PASS (6.518704ms)
+2026-11-03T01:31:45.3906721Z api-simulador-habitacional/policy/sbom_test.rego:138:
+2026-11-03T01:31:45.3968568Z data.sbom.test_ignore_base_packages_spdx: PASS (4.021611ms)
+2026-11-03T01:31:45.4016807Z api-simulador-habitacional/policy/sbom_test.rego:132:
+2026-11-03T01:31:45.4024418Z data.sbom.test_ignore_base_packages_cyclonedx: PASS (7.922847ms)
+2026-11-03T01:31:45.4025663Z api-simulador-habitacional/policy/sbom_test.rego:149:
+2026-11-03T01:31:45.4026705Z data.sbom.test_missing_transitive_dependency: PASS (3.08931ms)
+2026-11-03T01:31:45.4027153Z 
+2026-11-03T01:31:45.4027608Z api-simulador-habitacional/policy/kubernetes_test.rego:25:
+2026-11-03T01:31:45.4028391Z data.kubernetes.test_allow_hardened_deployment: PASS (4.283249ms)
+2026-11-03T01:31:45.4028681Z 
+2026-11-03T01:31:45.4028958Z api-simulador-habitacional/policy/sbom_test.rego:143:
+2026-11-03T01:31:45.4029481Z data.sbom.test_nested_third_party_dependency: PASS (12.915081ms)
+2026-11-03T01:31:45.4506715Z 
+2026-11-03T01:31:45.4537167Z api-simulador-habitacional/policy/kubernetes_test.rego:75:
+2026-11-03T01:31:45.4564255Z data.kubernetes.test_reject_invalid_images: PASS (60.602664ms)
+2026-11-03T01:31:45.4686963Z api-simulador-habitacional/policy/kubernetes_test.rego:57:
+2026-11-03T01:31:45.4688523Z data.kubernetes.test_reject_missing_required_fields: PASS (80.948328ms)
+2026-11-03T01:31:45.4867035Z api-simulador-habitacional/policy/kubernetes_test.rego:99:
+2026-11-03T01:31:45.4868445Z data.kubernetes.test_reject_spoofed_cloud_registries: PASS (24.017176ms)
+2026-11-03T01:31:45.4896878Z api-simulador-habitacional/policy/kubernetes_test.rego:113:
+2026-11-03T01:31:45.4917973Z data.kubernetes.test_allow_secret_reference: PASS (4.107322ms)
+2026-11-03T01:31:45.4927035Z 
+2026-11-03T01:31:45.4929429Z api-simulador-habitacional/policy/sbom_test.rego:35:
+2026-11-03T01:31:45.4930841Z data.sbom.test_deny_known_copyleft_precise: PASS (295.126768ms)
+2026-11-03T01:31:45.4931602Z 
+2026-11-03T01:31:45.4932370Z api-simulador-habitacional/policy/kubernetes_test.rego:118:
+2026-11-03T01:31:45.4933663Z data.kubernetes.test_check_init_and_ephemeral_containers: PASS (10.067091ms)
+2026-11-03T01:31:45.4935009Z api-simulador-habitacional/policy/kubernetes_test.rego:132:
+2026-11-03T01:31:45.4936351Z data.kubernetes.test_service_policy: PASS (1.010297ms)
+2026-11-03T01:31:45.4937550Z api-simulador-habitacional/policy/kubernetes_test.rego:81:
+2026-11-03T01:31:45.4938774Z data.kubernetes.test_allow_cloud_registry_images: PASS (54.237898ms)
+2026-11-03T01:31:45.4940078Z api-simulador-habitacional/policy/kubernetes_test.rego:136:
+2026-11-03T01:31:45.4941691Z data.kubernetes.test_ignore_configmap: PASS (497.79µs)
+2026-11-03T01:31:45.4951444Z 
+2026-11-03T01:31:45.4952026Z api-simulador-habitacional/policy/configuration_test.rego:12:
+2026-11-03T01:31:45.4952847Z data.configuration.test_warn_inline_secret: PASS (412.802µs)
+2026-11-03T01:31:45.4953126Z 
+2026-11-03T01:31:45.4953405Z api-simulador-habitacional/policy/kubernetes_test.rego:137:
+2026-11-03T01:31:45.4953993Z data.kubernetes.test_warn_one_replica: PASS (585.875µs)
+2026-11-03T01:31:45.4954239Z 
+2026-11-03T01:31:45.4954529Z api-simulador-habitacional/policy/configuration_test.rego:25:
+2026-11-03T01:31:45.4955242Z data.configuration.test_deny_missing_tls_keys: PASS (693.325µs)
+2026-11-03T01:31:45.4955526Z 
+2026-11-03T01:31:45.4955798Z api-simulador-habitacional/policy/kubernetes_test.rego:28:
+2026-11-03T01:31:45.4956913Z data.kubernetes.test_reject_security_regressions: PASS (125.202153ms)
+2026-11-03T01:31:45.4957205Z 
+2026-11-03T01:31:45.4957495Z api-simulador-habitacional/policy/configuration_test.rego:13:
+2026-11-03T01:31:45.4958172Z data.configuration.test_allow_base64_secret: PASS (1.298285ms)
+2026-11-03T01:31:45.4958713Z api-simulador-habitacional/policy/configuration_test.rego:20:
+2026-11-03T01:31:45.4959315Z data.configuration.test_deny_placeholders: PASS (649.854µs)
+2026-11-03T01:31:45.5040974Z 
+2026-11-03T01:31:45.5046998Z api-simulador-habitacional/policy/kubernetes_test.rego:124:
+2026-11-03T01:31:45.5047925Z data.kubernetes.test_support_workload_shapes: PASS (19.084792ms)
+2026-11-03T01:31:45.5048825Z --------------------------------------------------------------------------------
+2026-11-03T01:31:45.5049566Z PASS: 63/63
+2026-11-03T01:31:45.5187900Z OK: Testes Rego
+2026-11-03T01:31:45.7502822Z === Políticas Dockerfile ===
+2026-11-03T01:31:45.7959454Z [33mWARN[0m - api-simulador-habitacional/Dockerfile - dockerfile - DFW01: fixe bases externas por digest sha256 e automatize sua atualização.
+2026-11-03T01:31:45.7962201Z [31mFAIL[0m - api-simulador-habitacional/Dockerfile - dockerfile - DF003: o estágio final deve herdar ou declarar USER com UID numérico não-root (GID, se presente, também não-zero).
+2026-11-03T01:31:45.7963019Z 
+2026-11-03T01:31:45.7963383Z [31m6 tests, 4 passed, 1 warning, 1 failure, 0 exceptions[0m
+2026-11-03T01:31:45.7997050Z ##[error]Políticas Dockerfile falhou (exit 1).
+2026-11-03T01:31:45.8005097Z === Políticas Kubernetes ===
+2026-11-03T01:31:45.8420974Z [33mWARN[0m - .ci/k8s/deployment.yaml - kubernetes - KW01: use ao menos duas réplicas e um PodDisruptionBudget para alta disponibilidade.
+2026-11-03T01:31:45.8423397Z [33mWARN[0m - .ci/k8s/deployment.yaml - kubernetes - KW02: tags são mutáveis; em produção prefira imagens fixadas por digest.
+2026-11-03T01:31:45.8425450Z [31mFAIL[0m - .ci/k8s/deployment.yaml - kubernetes - K001: runAsNonRoot deve ser true (Pod ou container).
+2026-11-03T01:31:45.8427763Z [31mFAIL[0m - .ci/k8s/deployment.yaml - kubernetes - K002: runAsUser deve ser um UID numérico maior que zero (Pod ou container).
+2026-11-03T01:31:45.8429744Z [31mFAIL[0m - .ci/k8s/deployment.yaml - kubernetes - K003: allowPrivilegeEscalation deve ser false no container.
+2026-11-03T01:31:45.8431788Z [31mFAIL[0m - .ci/k8s/deployment.yaml - kubernetes - K005: readOnlyRootFilesystem deve ser true no container.
+2026-11-03T01:31:45.8433845Z [31mFAIL[0m - .ci/k8s/deployment.yaml - kubernetes - K006: capabilities.drop deve conter ALL e capabilities.add deve estar vazio.
+2026-11-03T01:31:45.8436092Z [31mFAIL[0m - .ci/k8s/deployment.yaml - kubernetes - K007: seccompProfile.type deve ser RuntimeDefault ou Localhost.
+2026-11-03T01:31:45.8438231Z [31mFAIL[0m - .ci/k8s/deployment.yaml - kubernetes - K011: cada container precisa de requests e limits de CPU e memória positivos.
+2026-11-03T01:31:45.8439212Z 
+2026-11-03T01:31:45.8440008Z [31m63 tests, 54 passed, 2 warnings, 7 failures, 0 exceptions[0m
+2026-11-03T01:31:45.8446345Z ##[error]Políticas Kubernetes falhou (exit 1).
+2026-11-03T01:31:45.8447535Z === Políticas de configuração ===
+2026-11-03T01:31:45.8882557Z 
+2026-11-03T01:31:45.8884282Z [32m12 tests, 12 passed, 0 warnings, 0 failures, 0 exceptions[0m
+2026-11-03T01:31:45.8900839Z OK: Políticas de configuração
+2026-11-03T01:31:45.9678226Z === Políticas da imagem ===
+2026-11-03T01:31:46.0118331Z [31mFAIL[0m - .ci/reports/image-inspect.json - image - IMG001: a imagem final deve configurar um UID numérico não-root.
+2026-11-03T01:31:46.0118875Z 
+2026-11-03T01:31:46.0119238Z [31m2 tests, 1 passed, 0 warnings, 1 failure, 0 exceptions[0m
+2026-11-03T01:31:46.0123524Z ##[error]Políticas da imagem falhou (exit 1).
+2026-11-03T01:31:46.0124671Z === Ausência de SDK na imagem ===
+2026-11-03T01:31:46.2079816Z OK: Ausência de SDK na imagem
+2026-11-03T01:31:46.2080594Z Validações concluídas (status=1).
+2026-11-03T01:31:46.2088053Z ##[error]Process completed with exit code 1.
+2026-11-03T01:31:46.2134571Z ##[group]Run mkdir -p .ci/sbom
+2026-11-03T01:31:46.2134891Z [36;1mmkdir -p .ci/sbom[0m
+2026-11-03T01:31:46.2155056Z shell: /usr/bin/bash -e {0}
+2026-11-03T01:31:46.2155313Z env:
+2026-11-03T01:31:46.2155502Z   HAS_ERROR: true
+2026-11-03T01:31:46.2155715Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:46.2156247Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:46.2156492Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:46.2156737Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:46.2156986Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:46.2157306Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:46.2157749Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:46.2158100Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:46.2158366Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:46.2158610Z ##[endgroup]
+2026-11-03T01:31:46.2272505Z ##[group]Run anchore/sbom-action@fffec3d851af758d56fee099cf3fbf8aa8779843
+2026-11-03T01:31:46.2272921Z with:
+2026-11-03T01:31:46.2273242Z   image: docker:andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:46.2273616Z   format: cyclonedx-json
+2026-11-03T01:31:46.2274046Z   output-file: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/sbom/sbom.cdx.json
+2026-11-03T01:31:46.2274510Z   syft-version: v1.56.0
+2026-11-03T01:31:46.2274743Z   upload-artifact: false
+2026-11-03T01:31:46.2274992Z   upload-release-assets: false
+2026-11-03T01:31:46.2275250Z   dependency-snapshot: false
+2026-11-03T01:31:46.2275492Z   path: .
+2026-11-03T01:31:46.2278289Z   github-token: ***
+2026-11-03T01:31:46.2278540Z   upload-artifact-retention: 0
+2026-11-03T01:31:46.2278787Z env:
+2026-11-03T01:31:46.2278980Z   HAS_ERROR: true
+2026-11-03T01:31:46.2279189Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:46.2279410Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:46.2279674Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:46.2279907Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:46.2280152Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:46.2280468Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:46.2280931Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:46.2281294Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:46.2281566Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:46.2281813Z ##[endgroup]
+2026-11-03T01:31:46.3918450Z ------------------------------ Running SBOM Action -----------------------------
+2026-11-03T01:31:46.4970396Z [command]/usr/bin/sh /home/runner/work/_temp/665a5de0-8bd4-4067-87b9-57b3989026b8 -d -b /home/runner/work/_temp/665a5de0-8bd4-4067-87b9-57b3989026b8_syft v1.56.0
+2026-11-03T01:31:46.5072827Z [info] checking github for release tag='v1.56.0' 
+2026-11-03T01:31:46.5143088Z [debug] http_download(url=https://github.com/anchore/syft/releases/v1.56.0) 
+2026-11-03T01:31:46.7013229Z [info] using release tag='v1.56.0' version='1.56.0' os='linux' arch='amd64' 
+2026-11-03T01:31:46.7036785Z [debug] downloading files into /tmp/tmp.ucTkXUPrYI 
+2026-11-03T01:31:46.7080061Z [debug] http_download(url=https://github.com/anchore/syft/releases/download/v1.56.0/syft_1.56.0_checksums.txt) 
+2026-11-03T01:31:46.7961362Z [debug] http_download(url=https://github.com/anchore/syft/releases/download/v1.56.0/syft_1.56.0_linux_amd64.tar.gz) 
+2026-11-03T01:31:47.9471936Z [info] installed /home/runner/work/_temp/665a5de0-8bd4-4067-87b9-57b3989026b8_syft/syft 
+2026-11-03T01:31:48.0104169Z [command]/opt/hostedtoolcache/syft/1.56.0/x64/syft scan docker:andrehs.azurecr.io/api-simulador-habitacional:5.1 -o cyclonedx-json
+2026-11-03T01:31:48.0106649Z ##[group]Executing Syft...
+2026-11-03T01:31:50.8942668Z ##[endgroup]
+2026-11-03T01:31:50.8943313Z SBOM scan completed in: 4.503s
+2026-11-03T01:31:50.9215022Z ##[group]Run anchore/sbom-action@fffec3d851af758d56fee099cf3fbf8aa8779843
+2026-11-03T01:31:50.9215463Z with:
+2026-11-03T01:31:50.9215757Z   image: docker:andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:50.9216396Z   format: spdx-json
+2026-11-03T01:31:50.9216812Z   output-file: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/sbom/sbom.spdx.json
+2026-11-03T01:31:50.9217480Z   syft-version: v1.56.0
+2026-11-03T01:31:50.9217708Z   upload-artifact: false
+2026-11-03T01:31:50.9217946Z   upload-release-assets: false
+2026-11-03T01:31:50.9218194Z   dependency-snapshot: false
+2026-11-03T01:31:50.9218422Z   path: .
+2026-11-03T01:31:50.9220928Z   github-token: ***
+2026-11-03T01:31:50.9221168Z   upload-artifact-retention: 0
+2026-11-03T01:31:50.9221406Z env:
+2026-11-03T01:31:50.9221588Z   HAS_ERROR: true
+2026-11-03T01:31:50.9221786Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:50.9221999Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:50.9222223Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:50.9222473Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:50.9222712Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:50.9223024Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:50.9223472Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:50.9223835Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:50.9224112Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:50.9224351Z ##[endgroup]
+2026-11-03T01:31:51.0841776Z ------------------------------ Running SBOM Action -----------------------------
+2026-11-03T01:31:51.0860710Z [command]/opt/hostedtoolcache/syft/1.56.0/x64/syft scan docker:andrehs.azurecr.io/api-simulador-habitacional:5.1 -o spdx-json
+2026-11-03T01:31:51.0864112Z ##[group]Executing Syft...
+2026-11-03T01:31:54.1256491Z ##[endgroup]
+2026-11-03T01:31:54.1257102Z SBOM scan completed in: 3.041s
+2026-11-03T01:31:54.1549670Z ##[group]Run bash scripts/validate-sbom.sh
+2026-11-03T01:31:54.1550048Z [36;1mbash scripts/validate-sbom.sh[0m
+2026-11-03T01:31:54.1570575Z shell: /usr/bin/bash -e {0}
+2026-11-03T01:31:54.1570831Z env:
+2026-11-03T01:31:54.1571023Z   HAS_ERROR: true
+2026-11-03T01:31:54.1571232Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:54.1571455Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:54.1571690Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:54.1571945Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:54.1572184Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:54.1572509Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:54.1572958Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:54.1573311Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:54.1573582Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:54.1573823Z ##[endgroup]
+2026-11-03T01:31:54.3559535Z === Escopo SBOM ===
+2026-11-03T01:31:54.3849232Z Escopo SBOM: 18 dependência(s)/projeto(s) de libraries no .deps.json.
+2026-11-03T01:31:54.3890722Z OK: Escopo SBOM
+2026-11-03T01:31:55.0157590Z === Relatório dos SBOMs ===
+2026-11-03T01:31:55.0529909Z .ci/sbom/sbom.cdx.json: 0 violação(ões) SBOM.
+2026-11-03T01:31:55.0531353Z .ci/sbom/sbom.spdx.json: 0 violação(ões) SBOM.
+2026-11-03T01:31:55.0576446Z OK: Relatório dos SBOMs
+2026-11-03T01:31:55.0768937Z ##[group]Run aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1
+2026-11-03T01:31:55.0769395Z with:
+2026-11-03T01:31:55.0769590Z   version: v0.76.1
+2026-11-03T01:31:55.0769798Z   scan-type: image
+2026-11-03T01:31:55.0770096Z   image-ref: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:55.0770432Z   scanners: vuln
+2026-11-03T01:31:55.0770635Z   vuln-type: os,library
+2026-11-03T01:31:55.0770851Z   format: table
+2026-11-03T01:31:55.0771053Z   severity: HIGH,CRITICAL
+2026-11-03T01:31:55.0771286Z   ignore-unfixed: false
+2026-11-03T01:31:55.0771498Z   exit-code: 1
+2026-11-03T01:31:55.0771690Z   timeout: 5m0s
+2026-11-03T01:31:55.0771881Z   scan-ref: .
+2026-11-03T01:31:55.0772243Z   cache-dir: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.cache/trivy
+2026-11-03T01:31:55.0772681Z   list-all-pkgs: false
+2026-11-03T01:31:55.0772895Z   cache: true
+2026-11-03T01:31:55.0773094Z   skip-setup-trivy: false
+2026-11-03T01:31:55.0775671Z   token-setup-trivy: ***
+2026-11-03T01:31:55.0776212Z env:
+2026-11-03T01:31:55.0776405Z   HAS_ERROR: true
+2026-11-03T01:31:55.0776615Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:55.0777054Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:55.0777288Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:55.0777521Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:55.0777760Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:55.0778071Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:55.0778511Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:55.0778865Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:55.0779135Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:55.0779379Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:55.0779598Z ##[endgroup]
+2026-11-03T01:31:55.0840947Z ##[start-action display=Install Trivy;id=trivy.__aquasecurity_setup-trivy]
+2026-11-03T01:31:55.0920879Z ##[group]Run aquasecurity/setup-trivy@e6c2c5e321ed9123bda567646e2f96565e34abe1
+2026-11-03T01:31:55.0921282Z with:
+2026-11-03T01:31:55.0921481Z   version: v0.76.1
+2026-11-03T01:31:55.0921689Z   cache: true
+2026-11-03T01:31:55.0924206Z   token: ***
+2026-11-03T01:31:55.0924430Z   path: $HOME/.local/bin
+2026-11-03T01:31:55.0924692Z   github-server-url: https://github.com
+2026-11-03T01:31:55.0924978Z env:
+2026-11-03T01:31:55.0925170Z   HAS_ERROR: true
+2026-11-03T01:31:55.0925374Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:55.0925594Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:55.0925822Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:55.0926221Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:55.0926460Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:55.0926773Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:55.0927222Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:55.0927572Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:55.0927834Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:55.0928081Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:55.0928304Z ##[endgroup]
+2026-11-03T01:31:55.0933636Z ##[start-action display=Binary dir;id=trivy.__aquasecurity_setup-trivy.binary-dir]
+2026-11-03T01:31:55.0950192Z ##[group]Run echo "dir=$HOME/.local/bin/trivy-bin" >> $GITHUB_OUTPUT
+2026-11-03T01:31:55.0950647Z [36;1mecho "dir=$HOME/.local/bin/trivy-bin" >> $GITHUB_OUTPUT[0m
+2026-11-03T01:31:55.0971020Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:31:55.0971362Z env:
+2026-11-03T01:31:55.0971549Z   HAS_ERROR: true
+2026-11-03T01:31:55.0971756Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:55.0971976Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:55.0972208Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:55.0972450Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:55.0972686Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:55.0973007Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:55.0973462Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:55.0973829Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:55.0974284Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:55.0974547Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:55.0974773Z ##[endgroup]
+2026-11-03T01:31:55.1047770Z ##[end-action id=trivy.__aquasecurity_setup-trivy.binary-dir;outcome=success;conclusion=success;duration_ms=11]
+2026-11-03T01:31:55.1050159Z ##[start-action display=Check the version for caching;id=trivy.__aquasecurity_setup-trivy.__run]
+2026-11-03T01:31:55.1055524Z ##[end-action id=trivy.__aquasecurity_setup-trivy.__run;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-03T01:31:55.1057980Z ##[start-action display=Restore Trivy binary from cache;id=trivy.__aquasecurity_setup-trivy.cache]
+2026-11-03T01:31:55.1116994Z ##[group]Run actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809
+2026-11-03T01:31:55.1117355Z with:
+2026-11-03T01:31:55.1117578Z   path: /home/runner/.local/bin/trivy-bin
+2026-11-03T01:31:55.1117894Z   key: trivy-binary-v0.76.1-Linux-X64
+2026-11-03T01:31:55.1118186Z   enableCrossOsArchive: false
+2026-11-03T01:31:55.1118462Z   fail-on-cache-miss: false
+2026-11-03T01:31:55.1118702Z   lookup-only: false
+2026-11-03T01:31:55.1118919Z   save-always: false
+2026-11-03T01:31:55.1119307Z env:
+2026-11-03T01:31:55.1119494Z   HAS_ERROR: true
+2026-11-03T01:31:55.1119706Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:55.1119925Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:55.1120158Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:55.1120393Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:55.1120641Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:55.1120955Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:55.1121419Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:55.1121786Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:55.1122063Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:55.1122312Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:55.1122536Z ##[endgroup]
+2026-11-03T01:31:55.2229883Z (node:4269) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-03T01:31:55.2230885Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-03T01:31:55.3000959Z Cache hit for: trivy-binary-v0.76.1-Linux-X64
+2026-11-03T01:31:55.3108957Z (node:4269) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-03T01:31:55.7030872Z Received 48186572 of 48186572 (100.0%), 124.9 MBs/sec
+2026-11-03T01:31:55.7031512Z Cache Size: ~46 MB (48186572 B)
+2026-11-03T01:31:55.7064807Z [command]/usr/bin/tar -xf /home/runner/work/_temp/e291c077-2182-4313-880a-b6d5947a6331/cache.tzst -P -C /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2 --use-compress-program unzstd
+2026-11-03T01:31:56.0134558Z Cache restored successfully
+2026-11-03T01:31:56.1513264Z Cache restored from key: trivy-binary-v0.76.1-Linux-X64
+2026-11-03T01:31:56.1695553Z ##[end-action id=trivy.__aquasecurity_setup-trivy.cache;outcome=success;conclusion=success;duration_ms=1063]
+2026-11-03T01:31:56.1698642Z ##[start-action display=Checkout install script;id=trivy.__aquasecurity_setup-trivy.__actions_checkout]
+2026-11-03T01:31:56.1703689Z ##[end-action id=trivy.__aquasecurity_setup-trivy.__actions_checkout;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-03T01:31:56.1705614Z ##[start-action display=Install Trivy;id=trivy.__aquasecurity_setup-trivy.__run_2]
+2026-11-03T01:31:56.1710046Z ##[end-action id=trivy.__aquasecurity_setup-trivy.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-03T01:31:56.1711982Z ##[start-action display=Add Trivy binary to $GITHUB_PATH;id=trivy.__aquasecurity_setup-trivy.__run_3]
+2026-11-03T01:31:56.1729940Z ##[group]Run echo /home/runner/.local/bin/trivy-bin >> $GITHUB_PATH
+2026-11-03T01:31:56.1730397Z [36;1mecho /home/runner/.local/bin/trivy-bin >> $GITHUB_PATH[0m
+2026-11-03T01:31:56.1751369Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:31:56.1751936Z env:
+2026-11-03T01:31:56.1752142Z   HAS_ERROR: true
+2026-11-03T01:31:56.1752358Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:56.1752601Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:56.1752838Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:56.1753088Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:56.1753345Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:56.1753678Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:56.1754139Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:56.1754508Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:56.1754786Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:56.1755060Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:56.1755292Z ##[endgroup]
+2026-11-03T01:31:56.1806737Z ##[end-action id=trivy.__aquasecurity_setup-trivy.__run_3;outcome=success;conclusion=success;duration_ms=9]
+2026-11-03T01:31:56.1819511Z ##[end-action id=trivy.__aquasecurity_setup-trivy;outcome=success;conclusion=success;duration_ms=1097]
+2026-11-03T01:31:56.1821432Z ##[start-action display=Get current date;id=trivy.date]
+2026-11-03T01:31:56.1837325Z ##[group]Run echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+2026-11-03T01:31:56.1837902Z [36;1mecho "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT[0m
+2026-11-03T01:31:56.1857031Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:31:56.1857371Z env:
+2026-11-03T01:31:56.1857563Z   HAS_ERROR: true
+2026-11-03T01:31:56.1857787Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:56.1858014Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:56.1858244Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:56.1858486Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:56.1858751Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:56.1859076Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:56.1859523Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:56.1859886Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:56.1860159Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:56.1860421Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:56.1860664Z ##[endgroup]
+2026-11-03T01:31:56.1921377Z ##[end-action id=trivy.date;outcome=success;conclusion=success;duration_ms=9]
+2026-11-03T01:31:56.1923301Z ##[start-action display=Restore DB from cache;id=trivy.__actions_cache]
+2026-11-03T01:31:56.1960185Z ##[group]Run actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809
+2026-11-03T01:31:56.1960541Z with:
+2026-11-03T01:31:56.1960876Z   path: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.cache/trivy
+2026-11-03T01:31:56.1961297Z   key: cache-trivy-2026-11-03
+2026-11-03T01:31:56.1961561Z   restore-keys: cache-trivy-
+2026-11-03T01:31:56.1961817Z   enableCrossOsArchive: false
+2026-11-03T01:31:56.1962073Z   fail-on-cache-miss: false
+2026-11-03T01:31:56.1962314Z   lookup-only: false
+2026-11-03T01:31:56.1962538Z   save-always: false
+2026-11-03T01:31:56.1962744Z env:
+2026-11-03T01:31:56.1962928Z   HAS_ERROR: true
+2026-11-03T01:31:56.1963139Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:56.1963372Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:56.1963606Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:56.1963845Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:56.1964104Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:56.1964414Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:56.1964865Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:56.1965227Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:56.1965501Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:56.1965753Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:56.1966321Z ##[endgroup]
+2026-11-03T01:31:56.3048219Z (node:4289) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-03T01:31:56.3049177Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-03T01:31:56.3859446Z Cache hit for: cache-trivy-2026-11-03
+2026-11-03T01:31:56.3997720Z (node:4289) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-03T01:31:56.9195272Z Received 97730116 of 97730116 (100.0%), 194.2 MBs/sec
+2026-11-03T01:31:56.9196505Z Cache Size: ~93 MB (97730116 B)
+2026-11-03T01:31:56.9230709Z [command]/usr/bin/tar -xf /home/runner/work/_temp/680bb527-6520-4266-83e2-2b110b59e8f7/cache.tzst -P -C /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2 --use-compress-program unzstd
+2026-11-03T01:31:58.9546818Z Cache restored successfully
+2026-11-03T01:31:59.0356254Z Cache restored from key: cache-trivy-2026-11-03
+2026-11-03T01:31:59.0605051Z ##[end-action id=trivy.__actions_cache;outcome=success;conclusion=success;duration_ms=2868]
+2026-11-03T01:31:59.0609679Z ##[start-action display=Set GitHub Path;id=trivy.__run]
+2026-11-03T01:31:59.0627951Z ##[group]Run echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+2026-11-03T01:31:59.0628354Z [36;1mecho "$GITHUB_ACTION_PATH" >> $GITHUB_PATH[0m
+2026-11-03T01:31:59.0651085Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:31:59.0651665Z env:
+2026-11-03T01:31:59.0651868Z   HAS_ERROR: true
+2026-11-03T01:31:59.0652105Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:59.0652342Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:59.0652591Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:59.0652847Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:59.0653117Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:59.0653462Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:59.0653931Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:59.0654361Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:59.0654648Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:59.0654920Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:59.0655420Z   GITHUB_ACTION_PATH: /home/runner/work/_actions/aquasecurity/trivy-action/57a97c7e7821a5776cebc9bb87c984fa69cba8f1
+2026-11-03T01:31:59.0656372Z ##[endgroup]
+2026-11-03T01:31:59.0712129Z ##[end-action id=trivy.__run;outcome=success;conclusion=success;duration_ms=10]
+2026-11-03T01:31:59.0715508Z ##[start-action display=Clear Trivy Envs file;id=trivy.__run_2]
+2026-11-03T01:31:59.1742775Z ##[group]Run rm -f trivy_envs.txt
+2026-11-03T01:31:59.1743161Z [36;1mrm -f trivy_envs.txt[0m
+2026-11-03T01:31:59.1743472Z [36;1mtouch trivy_envs.txt[0m
+2026-11-03T01:31:59.1765103Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:31:59.1765483Z env:
+2026-11-03T01:31:59.1765696Z   HAS_ERROR: true
+2026-11-03T01:31:59.1766093Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:59.1766343Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:59.1766589Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:59.1766854Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:59.1767113Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:59.1767455Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:59.1767933Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:59.1768318Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:59.1768611Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:59.1768884Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:59.1769135Z ##[endgroup]
+2026-11-03T01:31:59.1866463Z ##[end-action id=trivy.__run_2;outcome=success;conclusion=success;duration_ms=114]
+2026-11-03T01:31:59.1873130Z ##[start-action display=Set Trivy environment variables;id=trivy.__run_3]
+2026-11-03T01:31:59.2159706Z ##[group]Run # Note: There is currently no way to distinguish between undefined variables and empty strings in GitHub Actions.
+2026-11-03T01:31:59.2161300Z [36;1m# Note: There is currently no way to distinguish between undefined variables and empty strings in GitHub Actions.[0m
+2026-11-03T01:31:59.2162516Z [36;1m# This limitation affects how we handle default values and empty inputs.[0m
+2026-11-03T01:31:59.2163519Z [36;1m# For more information, see: https://github.com/actions/runner/issues/924[0m
+2026-11-03T01:31:59.2164260Z [36;1m[0m
+2026-11-03T01:31:59.2165229Z [36;1m# The following logic implements the configuration priority described in the README:[0m
+2026-11-03T01:31:59.2166140Z [36;1m#[0m
+2026-11-03T01:31:59.2166404Z [36;1m# Inputs[0m
+2026-11-03T01:31:59.2166647Z [36;1m# Environment Variables[0m
+2026-11-03T01:31:59.2166927Z [36;1m# Config File[0m
+2026-11-03T01:31:59.2167163Z [36;1m# Defaults[0m
+2026-11-03T01:31:59.2167383Z [36;1m#[0m
+2026-11-03T01:31:59.2167820Z [36;1m# As noted above defaults are awkward to handle as GitHub Actions will inject those values as the input[0m
+2026-11-03T01:31:59.2168535Z [36;1m# if the caller doesn't provide them, thus if the input matches the default we don't set it as we[0m
+2026-11-03T01:31:59.2169221Z [36;1m# can't tell the difference.  Plus if we did set it when it was the default value then it could potentially[0m
+2026-11-03T01:31:59.2169980Z [36;1m# override an external environment variable, or something in the callers configuration file, which then wouldn't[0m
+2026-11-03T01:31:59.2170598Z [36;1m# match the configuration priority that is documented.[0m
+2026-11-03T01:31:59.2170963Z [36;1mset_env_var_if_provided() {[0m
+2026-11-03T01:31:59.2171422Z [36;1m  local var_name="$1"[0m
+2026-11-03T01:31:59.2171689Z [36;1m  local input_value="$2"[0m
+2026-11-03T01:31:59.2171963Z [36;1m  local default_value="$3"[0m
+2026-11-03T01:31:59.2172227Z [36;1m[0m
+2026-11-03T01:31:59.2172550Z [36;1m  if [ -n "$input_value" ] && [ "$input_value" != "$default_value" ]; then[0m
+2026-11-03T01:31:59.2173058Z [36;1m    # If action was provided with explicit input by the caller set that[0m
+2026-11-03T01:31:59.2173615Z [36;1m    # Use printf %q to safely escape special characters and prevent command injection[0m
+2026-11-03T01:31:59.2174158Z [36;1m    printf 'export %s=%q\n' "$var_name" "$input_value" >> trivy_envs.txt[0m
+2026-11-03T01:31:59.2174546Z [36;1m  fi[0m
+2026-11-03T01:31:59.2174749Z [36;1m}[0m
+2026-11-03T01:31:59.2174950Z [36;1m[0m
+2026-11-03T01:31:59.2175258Z [36;1m# Set environment variables, handling those with default values[0m
+2026-11-03T01:31:59.2176061Z [36;1m# cf. https://aquasecurity.github.io/trivy/latest/docs/configuration/#environment-variables[0m
+2026-11-03T01:31:59.2176652Z [36;1mset_env_var_if_provided "TRIVY_INPUT" "$INPUT_INPUT" ""[0m
+2026-11-03T01:31:59.2177100Z [36;1mset_env_var_if_provided "TRIVY_EXIT_CODE" "$INPUT_EXIT_CODE" ""[0m
+2026-11-03T01:31:59.2177606Z [36;1mset_env_var_if_provided "TRIVY_IGNORE_UNFIXED" "$INPUT_IGNORE_UNFIXED" "false"[0m
+2026-11-03T01:31:59.2178171Z [36;1mset_env_var_if_provided "TRIVY_PKG_TYPES" "$INPUT_VULN_TYPE" "os,library"[0m
+2026-11-03T01:31:59.2178773Z [36;1mset_env_var_if_provided "TRIVY_SEVERITY" "$INPUT_SEVERITY" "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"[0m
+2026-11-03T01:31:59.2179343Z [36;1mset_env_var_if_provided "TRIVY_FORMAT" "$INPUT_FORMAT" "table"[0m
+2026-11-03T01:31:59.2179803Z [36;1mset_env_var_if_provided "TRIVY_TEMPLATE" "$INPUT_TEMPLATE" ""[0m
+2026-11-03T01:31:59.2180257Z [36;1mset_env_var_if_provided "TRIVY_OUTPUT" "$INPUT_OUTPUT" ""[0m
+2026-11-03T01:31:59.2180730Z [36;1mset_env_var_if_provided "TRIVY_SKIP_DIRS" "$INPUT_SKIP_DIRS" ""[0m
+2026-11-03T01:31:59.2181221Z [36;1mset_env_var_if_provided "TRIVY_SKIP_FILES" "$INPUT_SKIP_FILES" ""[0m
+2026-11-03T01:31:59.2181683Z [36;1mset_env_var_if_provided "TRIVY_TIMEOUT" "$INPUT_TIMEOUT" ""[0m
+2026-11-03T01:31:59.2182165Z [36;1mset_env_var_if_provided "TRIVY_IGNORE_POLICY" "$INPUT_IGNORE_POLICY" ""[0m
+2026-11-03T01:31:59.2182655Z [36;1mset_env_var_if_provided "TRIVY_QUIET" "$INPUT_HIDE_PROGRESS" ""[0m
+2026-11-03T01:31:59.2183159Z [36;1mset_env_var_if_provided "TRIVY_LIST_ALL_PKGS" "$INPUT_LIST_ALL_PKGS" "false"[0m
+2026-11-03T01:31:59.2183654Z [36;1mset_env_var_if_provided "TRIVY_SCANNERS" "$INPUT_SCANNERS" ""[0m
+2026-11-03T01:31:59.2184107Z [36;1mset_env_var_if_provided "TRIVY_CONFIG" "$INPUT_TRIVY_CONFIG" ""[0m
+2026-11-03T01:31:59.2184546Z [36;1mset_env_var_if_provided "TRIVY_TF_VARS" "$INPUT_TF_VARS" ""[0m
+2026-11-03T01:31:59.2185142Z [36;1mset_env_var_if_provided "TRIVY_DOCKER_HOST" "$INPUT_DOCKER_HOST" ""[0m
+2026-11-03T01:31:59.2205633Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:31:59.2206133Z env:
+2026-11-03T01:31:59.2206339Z   HAS_ERROR: true
+2026-11-03T01:31:59.2206560Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:59.2206800Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:59.2207042Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:59.2207286Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:59.2207540Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:59.2207870Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:59.2208333Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:59.2208693Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:59.2208977Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:59.2209252Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:59.2209489Z   INPUT_INPUT: 
+2026-11-03T01:31:59.2209700Z   INPUT_EXIT_CODE: 1
+2026-11-03T01:31:59.2209949Z   INPUT_IGNORE_UNFIXED: false
+2026-11-03T01:31:59.2210219Z   INPUT_VULN_TYPE: os,library
+2026-11-03T01:31:59.2210470Z   INPUT_SEVERITY: HIGH,CRITICAL
+2026-11-03T01:31:59.2210969Z   INPUT_FORMAT: table
+2026-11-03T01:31:59.2211193Z   INPUT_TEMPLATE: 
+2026-11-03T01:31:59.2211411Z   INPUT_OUTPUT: 
+2026-11-03T01:31:59.2211619Z   INPUT_SKIP_DIRS: 
+2026-11-03T01:31:59.2211831Z   INPUT_SKIP_FILES: 
+2026-11-03T01:31:59.2212052Z   INPUT_TIMEOUT: 5m0s
+2026-11-03T01:31:59.2212274Z   INPUT_IGNORE_POLICY: 
+2026-11-03T01:31:59.2212510Z   INPUT_HIDE_PROGRESS: 
+2026-11-03T01:31:59.2212744Z   INPUT_LIST_ALL_PKGS: false
+2026-11-03T01:31:59.2212999Z   INPUT_SCANNERS: vuln
+2026-11-03T01:31:59.2213222Z   INPUT_TRIVY_CONFIG: 
+2026-11-03T01:31:59.2213440Z   INPUT_TF_VARS: 
+2026-11-03T01:31:59.2213653Z   INPUT_DOCKER_HOST: 
+2026-11-03T01:31:59.2213870Z ##[endgroup]
+2026-11-03T01:31:59.2279971Z ##[end-action id=trivy.__run_3;outcome=success;conclusion=success;duration_ms=40]
+2026-11-03T01:31:59.2285585Z ##[start-action display=Run Trivy;id=trivy.__run_4]
+2026-11-03T01:31:59.3265756Z ##[group]Run entrypoint.sh
+2026-11-03T01:31:59.3266394Z [36;1mentrypoint.sh[0m
+2026-11-03T01:31:59.3286861Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:31:59.3287239Z env:
+2026-11-03T01:31:59.3287481Z   HAS_ERROR: true
+2026-11-03T01:31:59.3287714Z   OPA_VERSION: 1.22.0
+2026-11-03T01:31:59.3287956Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:31:59.3288518Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:31:59.3288915Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:31:59.3289324Z   BUILD_VERSION: 5.1
+2026-11-03T01:31:59.3289828Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:31:59.3290550Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:59.3291147Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:31:59.3291556Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:31:59.3291828Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:31:59.3292085Z   INPUT_SCAN_TYPE: image
+2026-11-03T01:31:59.3292450Z   INPUT_IMAGE_REF: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:59.3292850Z   INPUT_SCAN_REF: .
+2026-11-03T01:31:59.3293075Z   INPUT_TRIVYIGNORES: 
+2026-11-03T01:31:59.3293320Z   INPUT_GITHUB_PAT: 
+2026-11-03T01:31:59.3293556Z   INPUT_LIMIT_SEVERITIES_FOR_SARIF: 
+2026-11-03T01:31:59.3294007Z   TRIVY_CACHE_DIR: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.cache/trivy
+2026-11-03T01:31:59.3294455Z ##[endgroup]
+2026-11-03T01:31:59.3362741Z Running Trivy with options: trivy image andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:31:59.4099086Z 2026-11-03T01:31:59Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-11-03T01:32:00.8760576Z 2026-11-03T01:32:00Z	INFO	Detected OS	family="ubuntu" version="24.04"
+2026-11-03T01:32:00.8762089Z 2026-11-03T01:32:00Z	INFO	[ubuntu] Detecting vulnerabilities...	os_version="24.04" pkg_num=97
+2026-11-03T01:32:00.8788595Z 2026-11-03T01:32:00Z	INFO	Number of language-specific files	num=3
+2026-11-03T01:32:00.8790316Z 2026-11-03T01:32:00Z	INFO	[dotnet-core] Detecting vulnerabilities...
+2026-11-03T01:32:01.3846443Z 
+2026-11-03T01:32:01.3847244Z Report Summary
+2026-11-03T01:32:01.3847649Z 
+2026-11-03T01:32:01.3849082Z ┌──────────────────────────────────────────────────────────────────────────────────┬─────────────┬─────────────────┐
+2026-11-03T01:32:01.3850613Z │                                      Target                                      │    Type     │ Vulnerabilities │
+2026-11-03T01:32:01.3852198Z ├──────────────────────────────────────────────────────────────────────────────────┼─────────────┼─────────────────┤
+2026-11-03T01:32:01.3853912Z │ andrehs.azurecr.io/api-simulador-habitacional:5.1 (ubuntu 24.04)                 │   ubuntu    │        0        │
+2026-11-03T01:32:01.3855233Z ├──────────────────────────────────────────────────────────────────────────────────┼─────────────┼─────────────────┤
+2026-11-03T01:32:01.3856659Z │ app/api-simulador-habitacional.deps.json                                         │ dotnet-core │        1        │
+2026-11-03T01:32:01.3857843Z ├──────────────────────────────────────────────────────────────────────────────────┼─────────────┼─────────────────┤
+2026-11-03T01:32:01.3859247Z │ usr/share/dotnet/shared/Microsoft.AspNetCore.App/10.0.14/Microsoft.AspNetCore.A- │ dotnet-core │        0        │
+2026-11-03T01:32:01.3860165Z │ pp.deps.json                                                                     │             │                 │
+2026-11-03T01:32:01.3860991Z ├──────────────────────────────────────────────────────────────────────────────────┼─────────────┼─────────────────┤
+2026-11-03T01:32:01.3861906Z │ usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.14/Microsoft.NETCore.App.dep- │ dotnet-core │        0        │
+2026-11-03T01:32:01.3862795Z │ s.json                                                                           │             │                 │
+2026-11-03T01:32:01.3863590Z └──────────────────────────────────────────────────────────────────────────────────┴─────────────┴─────────────────┘
+2026-11-03T01:32:01.3863999Z Legend:
+2026-11-03T01:32:01.3864256Z - '-': Not scanned
+2026-11-03T01:32:01.3864601Z - '0': Clean (no security findings detected)
+2026-11-03T01:32:01.3864841Z 
+2026-11-03T01:32:01.3864848Z 
+2026-11-03T01:32:01.3865018Z For OSS Maintainers: VEX Notice
+2026-11-03T01:32:01.3865343Z --------------------------------
+2026-11-03T01:32:01.3866773Z If you're an OSS maintainer and Trivy has detected vulnerabilities in your project that you believe are not actually exploitable, consider issuing a VEX (Vulnerability Exploitability eXchange) statement.
+2026-11-03T01:32:01.3868273Z VEX allows you to communicate the actual status of vulnerabilities in your project, improving security transparency and reducing false positives for your users.
+2026-11-03T01:32:01.3869394Z Learn more and start using VEX: https://trivy.dev/docs/v0.76/guide/supply-chain/vex/repo#publishing-vex-documents
+2026-11-03T01:32:01.3869836Z 
+2026-11-03T01:32:01.3870211Z To disable this notice, set the TRIVY_DISABLE_VEX_NOTICE environment variable.
+2026-11-03T01:32:01.3870699Z 
+2026-11-03T01:32:01.3870708Z 
+2026-11-03T01:32:01.3870978Z app/api-simulador-habitacional.deps.json (dotnet-core)
+2026-11-03T01:32:01.3871434Z ======================================================
+2026-11-03T01:32:01.3871797Z Total: 1 (HIGH: 1, CRITICAL: 0)
+2026-11-03T01:32:01.3871974Z 
+2026-11-03T01:32:01.3872676Z ┌─────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────┬────────────────────────────────────────────────┐
+2026-11-03T01:32:01.3873731Z │     Library     │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version │                     Title                      │
+2026-11-03T01:32:01.3874842Z ├─────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────┼────────────────────────────────────────────────┤
+2026-11-03T01:32:01.3876067Z │ Newtonsoft.Json │ CVE-2024-21907 │ HIGH     │ fixed  │ 12.0.3            │ 13.0.1        │ Improper Handling of Exceptional Conditions in │
+2026-11-03T01:32:01.3877120Z │                 │                │          │        │                   │               │ Newtonsoft.Json                                │
+2026-11-03T01:32:01.3878170Z │                 │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-21907     │
+2026-11-03T01:32:01.3879149Z └─────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────┴────────────────────────────────────────────────┘
+2026-11-03T01:32:01.3936480Z ##[error]Process completed with exit code 1.
+2026-11-03T01:32:01.3944527Z ##[end-action id=trivy.__run_4;outcome=failure;conclusion=failure;duration_ms=2165]
+2026-11-03T01:32:01.3951461Z ##[start-action display=Remove Trivy Envs file;id=trivy.__run_5]
+2026-11-03T01:32:01.3972185Z ##[group]Run rm -f trivy_envs.txt
+2026-11-03T01:32:01.3972483Z [36;1mrm -f trivy_envs.txt[0m
+2026-11-03T01:32:01.3993577Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:32:01.3993928Z env:
+2026-11-03T01:32:01.3994147Z   HAS_ERROR: true
+2026-11-03T01:32:01.3994379Z   OPA_VERSION: 1.22.0
+2026-11-03T01:32:01.3994612Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:32:01.3994881Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:32:01.3995131Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:32:01.3995388Z   BUILD_VERSION: 5.1
+2026-11-03T01:32:01.3995713Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:32:01.3996545Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:32:01.3996915Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:32:01.3997251Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:32:01.3997633Z   TRIVY_IMAGE_SRC: docker
+2026-11-03T01:32:01.3997876Z ##[endgroup]
+2026-11-03T01:32:01.4059792Z ##[end-action id=trivy.__run_5;outcome=success;conclusion=success;duration_ms=10]
+2026-11-03T01:32:01.4115369Z ##[group]Run set -euo pipefail
+2026-11-03T01:32:01.4115709Z [36;1mset -euo pipefail[0m
+2026-11-03T01:32:01.4116687Z [36;1mchecks=(unit-tests policy-tools render dotnet-build docker-build app-policy sbom-directory sbom-cyclonedx sbom-spdx sbom-policy trivy)[0m
+2026-11-03T01:32:01.4117352Z [36;1mhas_error="$HAS_ERROR"[0m
+2026-11-03T01:32:01.4117768Z [36;1mecho '## Resultados dos testes e validações' >> "$GITHUB_STEP_SUMMARY"[0m
+2026-11-03T01:32:01.4118189Z [36;1mfor check in "${checks[@]}"; do[0m
+2026-11-03T01:32:01.4118651Z [36;1m  outcome=$(jq -r --arg check "$check" '.[$check].outcome // "missing"' <<< "$CHECK_RESULTS")[0m
+2026-11-03T01:32:01.4119170Z [36;1m  echo "- $check: $outcome" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-11-03T01:32:01.4119540Z [36;1m  if [[ "$outcome" != success ]]; then[0m
+2026-11-03T01:32:01.4119852Z [36;1m    has_error=true[0m
+2026-11-03T01:32:01.4120204Z [36;1m    echo "::error::Verificação $check não aprovada: $outcome"[0m
+2026-11-03T01:32:01.4120595Z [36;1m  fi[0m
+2026-11-03T01:32:01.4120801Z [36;1mdone[0m
+2026-11-03T01:32:01.4121054Z [36;1mecho "HAS_ERROR=$has_error" >> "$GITHUB_ENV"[0m
+2026-11-03T01:32:01.4139972Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:32:01.4140316Z env:
+2026-11-03T01:32:01.4140520Z   HAS_ERROR: true
+2026-11-03T01:32:01.4140933Z   OPA_VERSION: 1.22.0
+2026-11-03T01:32:01.4141175Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:32:01.4141435Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:32:01.4141689Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:32:01.4141950Z   BUILD_VERSION: 5.1
+2026-11-03T01:32:01.4142285Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:32:01.4142747Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:32:01.4143115Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:32:01.4143396Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:32:01.4146561Z   CHECK_RESULTS: {
+  "unit-tests": {
+    "outputs": {},
+    "outcome": "success",
+    "conclusion": "success"
+  },
+  "policy-tools": {
+    "outputs": {},
+    "outcome": "success",
+    "conclusion": "success"
+  },
+  "render": {
+    "outputs": {},
+    "outcome": "success",
+    "conclusion": "success"
+  },
+  "dotnet-build": {
+    "outputs": {},
+    "outcome": "success",
+    "conclusion": "success"
+  },
+  "docker-build": {
+    "outputs": {},
+    "outcome": "success",
+    "conclusion": "success"
+  },
+  "app-policy": {
+    "outputs": {},
+    "outcome": "failure",
+    "conclusion": "success"
+  },
+  "sbom-directory": {
+    "outputs": {},
+    "outcome": "success",
+    "conclusion": "success"
+  },
+  "sbom-cyclonedx": {
+    "outputs": {},
+    "outcome": "success",
+    "conclusion": "success"
+  },
+  "sbom-spdx": {
+    "outputs": {},
+    "outcome": "success",
+    "conclusion": "success"
+  },
+  "sbom-policy": {
+    "outputs": {},
+    "outcome": "success",
+    "conclusion": "success"
+  },
+  "trivy": {
+    "outputs": {},
+    "outcome": "failure",
+    "conclusion": "success"
+  }
+}
+2026-11-03T01:32:01.4149700Z ##[endgroup]
+2026-11-03T01:32:01.4385439Z ##[error]Verificação app-policy não aprovada: failure
+2026-11-03T01:32:01.4543717Z ##[error]Verificação trivy não aprovada: failure
+2026-11-03T01:32:01.4582695Z ##[group]Run set -euo pipefail
+2026-11-03T01:32:01.4583013Z [36;1mset -euo pipefail[0m
+2026-11-03T01:32:01.4583318Z [36;1mif [[ "$HAS_ERROR" != false ]]; then[0m
+2026-11-03T01:32:01.4583792Z [36;1m  echo '::error::Testes ou validações falharam. Publicação da imagem bloqueada.'[0m
+2026-11-03T01:32:01.4584237Z [36;1m  exit 1[0m
+2026-11-03T01:32:01.4584453Z [36;1mfi[0m
+2026-11-03T01:32:01.4584762Z [36;1mecho 'Todas as verificações foram aprovadas; HAS_ERROR=false.'[0m
+2026-11-03T01:32:01.4604633Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-03T01:32:01.4604983Z env:
+2026-11-03T01:32:01.4605186Z   HAS_ERROR: true
+2026-11-03T01:32:01.4605403Z   OPA_VERSION: 1.22.0
+2026-11-03T01:32:01.4605632Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:32:01.4606166Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:32:01.4606434Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:32:01.4606701Z   BUILD_VERSION: 5.1
+2026-11-03T01:32:01.4607065Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:32:01.4607527Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:32:01.4607896Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:32:01.4608193Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:32:01.4608448Z ##[endgroup]
+2026-11-03T01:32:01.4650748Z ##[error]Testes ou validações falharam. Publicação da imagem bloqueada.
+2026-11-03T01:32:01.4652824Z ##[error]Process completed with exit code 1.
+2026-11-03T01:32:01.4728527Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-03T01:32:01.4728957Z with:
+2026-11-03T01:32:01.4729217Z   name: sboms-0161d0d7cc040cce8ff70811e2cb6de1a9d25157
+2026-11-03T01:32:01.4731422Z   path: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/sbom/sbom.cdx.json
+/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/sbom/sbom.spdx.json
+/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/sbom/validation.json
+/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/sbom/image-id.txt
+/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/sbom/scope.json
+/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/sbom/application.deps.json
+/home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci/reports/
+
+2026-11-03T01:32:01.4733706Z   if-no-files-found: error
+2026-11-03T01:32:01.4733962Z   retention-days: 14
+2026-11-03T01:32:01.4734199Z   include-hidden-files: true
+2026-11-03T01:32:01.4734485Z   compression-level: 6
+2026-11-03T01:32:01.4734717Z   overwrite: false
+2026-11-03T01:32:01.4734927Z env:
+2026-11-03T01:32:01.4735123Z   HAS_ERROR: true
+2026-11-03T01:32:01.4735337Z   OPA_VERSION: 1.22.0
+2026-11-03T01:32:01.4735573Z   CONFTEST_VERSION: 0.71.1
+2026-11-03T01:32:01.4735813Z   SYFT_VERSION: v1.56.0
+2026-11-03T01:32:01.4736391Z   REGISTRY: andrehs.azurecr.io
+2026-11-03T01:32:01.4736649Z   BUILD_VERSION: 5.1
+2026-11-03T01:32:01.4736973Z   APP_ROOT: /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:32:01.4737429Z   CI_IMAGE: andrehs.azurecr.io/api-simulador-habitacional:5.1
+2026-11-03T01:32:01.4737793Z   REGISTRY_HOST: andrehs.azurecr.io
+2026-11-03T01:32:01.4738079Z   DOTNET_ROOT: /usr/share/dotnet
+2026-11-03T01:32:01.4738336Z ##[endgroup]
+2026-11-03T01:32:01.6562921Z (node:4351) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-03T01:32:01.6563831Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-03T01:32:01.6661569Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-03T01:32:01.6666129Z The least common ancestor is /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2/.ci. This will be the root directory of the artifact
+2026-11-03T01:32:01.6667600Z With the provided path, there will be 9 files uploaded
+2026-11-03T01:32:01.6672912Z Artifact name is valid!
+2026-11-03T01:32:01.6674071Z Root directory input is valid!
+2026-11-03T01:32:01.8821762Z Beginning upload of artifact content to blob storage
+2026-11-03T01:32:01.9889552Z (node:4351) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-03T01:32:02.0328625Z Uploaded bytes 777311
+2026-11-03T01:32:02.0526717Z Finished uploading artifact content to blob storage!
+2026-11-03T01:32:02.0527902Z SHA256 digest of uploaded artifact zip is ac1a0025f551518afb06e91828a0772270d07e549ca416e1517b730a5cb1294c
+2026-11-03T01:32:02.0530158Z Finalizing artifact upload
+2026-11-03T01:32:02.5955827Z Artifact sboms-0161d0d7cc040cce8ff70811e2cb6de1a9d25157.zip successfully finalized. Artifact ID 13195768444
+2026-11-03T01:32:02.5958386Z Artifact sboms-0161d0d7cc040cce8ff70811e2cb6de1a9d25157 has been successfully uploaded! Final size is 777311 bytes. Artifact ID is 13195768444
+2026-11-03T01:32:02.5964392Z Artifact download URL: https://github.com/andrehs91/ada-projeto-modulo2/actions/runs/41560197725/artifacts/13195768444
+2026-11-03T01:32:02.6282137Z Post job cleanup.
+2026-11-03T01:32:02.6286502Z ##[start-action display=Restore DB from cache;id=__2184be53-95ca-4878-9049-af8852f05304.__actions_cache]
+2026-11-03T01:32:02.6288730Z ##[end-action id=__2184be53-95ca-4878-9049-af8852f05304.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-03T01:32:02.6290791Z ##[start-action display=Install Trivy;id=__2184be53-95ca-4878-9049-af8852f05304.__aquasecurity_setup-trivy]
+2026-11-03T01:32:02.6358315Z Post job cleanup.
+2026-11-03T01:32:02.6361417Z ##[start-action display=Restore Trivy binary from cache;id=__2184be53-95ca-4878-9049-af8852f05304.__aquasecurity_setup-trivy.cache]
+2026-11-03T01:32:02.6363614Z ##[end-action id=__2184be53-95ca-4878-9049-af8852f05304.__aquasecurity_setup-trivy.cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-03T01:32:02.6368563Z ##[end-action id=__2184be53-95ca-4878-9049-af8852f05304.__aquasecurity_setup-trivy;outcome=success;conclusion=success;duration_ms=7]
+2026-11-03T01:32:02.6447523Z Post job cleanup.
+2026-11-03T01:32:02.7319420Z [command]/usr/bin/git version
+2026-11-03T01:32:02.7367406Z git version 2.56.0
+2026-11-03T01:32:02.7413356Z Temporarily overriding HOME='/home/runner/work/_temp/a6640db4-19b4-4640-9af1-74daa6f56920' before making global git config changes
+2026-11-03T01:32:02.7415224Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-03T01:32:02.7419940Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ada-projeto-modulo2/ada-projeto-modulo2
+2026-11-03T01:32:02.7463983Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-03T01:32:02.7507942Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-03T01:32:02.7798423Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-03T01:32:02.7838741Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-03T01:32:02.8313973Z Cleaning up orphan processes
+2026-11-03T01:32:02.8770138Z Terminate orphan process: pid (2614) (VBCSCompiler)
+2026-11-03T01:32:02.9063430Z Terminate orphan process: pid (3309) (dotnet)
+2026-11-03T01:32:02.9127843Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809, actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
